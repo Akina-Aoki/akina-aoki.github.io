@@ -1,5 +1,6 @@
 from pathlib import Path
 from textwrap import dedent
+import base64
 
 import streamlit as st
 
@@ -21,6 +22,9 @@ RESUME_FILE = next(
     RESUME_CANDIDATES[0],
 )
 
+TECH_STACK_IMAGE = (
+    PROJECT_ROOT / "assets" / "de_tech_stack_pyramid.png"
+)
 
 # =========================================================
 # Page Styling
@@ -724,59 +728,362 @@ st.markdown(
 # =========================================================
 # Education & Profile
 # =========================================================
-st.subheader("Education & Profile")
-
-st.write(
+education_css = dedent(
     """
-    - 🎓 **Data Engineering**
+    <style>
+    .education-card {
+        position: relative;
+        width: 100%;
+        margin: 0 0 3rem;
+        overflow: hidden;
+        color: #101820;
+        background:
+            linear-gradient(
+                135deg,
+                #f7c44f 0%,
+                #ffc95a 55%,
+                #f4b93d 100%
+            );
+        border: 1px solid rgba(255, 224, 146, 0.65);
+        border-radius: 20px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    }
 
-      Stockholms Tekniska Institut  
-      September 2025 – May 2027
+    .education-card::after {
+        content: "";
+        position: absolute;
+        top: -35px;
+        right: -35px;
+        width: 120px;
+        height: 120px;
+        border: 2px solid rgba(16, 24, 32, 0.14);
+        border-radius: 50%;
+        box-shadow:
+            0 0 0 13px rgba(16, 24, 32, 0.05),
+            0 0 0 26px rgba(16, 24, 32, 0.035);
+    }
 
-    - 🎓 **English Literature**
+    .education-card-header {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        padding: 1.4rem 1.6rem;
+        border-bottom: 2px dashed rgba(16, 24, 32, 0.48);
+    }
 
-      Hokusei Gakuen University  
-      Sapporo, Japan  
-      April 2015 – March 2017
+    .education-heading {
+        color: #101820 !important;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.9rem, 3vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .education-body {
+        position: relative;
+        z-index: 2;
+        padding: 0 1.6rem;
+    }
+
+    .education-entry {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 1.15rem;
+        min-height: 138px;
+        padding: 1.15rem 0;
+        border-bottom: 1px solid rgba(16, 24, 32, 0.28);
+    }
+
+    .education-entry:last-child {
+        border-bottom: none;
+    }
+
+    .education-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        color: #f8fafc !important;
+        background: #0b1d2d;
+        border-radius: 14px;
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        box-shadow: 0 8px 18px rgba(6, 19, 33, 0.18);
+    }
+
+    .education-information {
+        min-width: 0;
+    }
+
+    .education-program {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: #101820 !important;
+        font-size: 1.4rem;
+        font-weight: 800;
+        line-height: 1.25;
+    }
+
+    .education-school {
+        display: block;
+        color: #101820 !important;
+        font-size: 1.08rem;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    .education-location {
+        display: block;
+        margin-top: 0.2rem;
+        color: rgba(16, 24, 32, 0.74) !important;
+        font-size: 0.95rem;
+        line-height: 1.35;
+    }
+
+    .education-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.55rem;
+        min-width: 190px;
+    }
+
+    .education-date {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.55rem 0.8rem;
+        color: #f8fafc !important;
+        background: #0b1d2d;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 750;
+        white-space: nowrap;
+    }
+
+    .education-type {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.42rem 0.7rem;
+        color: #101820 !important;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(16, 24, 32, 0.18);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 700px) {
+        .education-card-header {
+            padding: 1.25rem;
+        }
+
+        .education-body {
+            padding: 0 1.25rem;
+        }
+
+        .education-entry {
+            grid-template-columns: 52px minmax(0, 1fr);
+            gap: 0.9rem;
+            min-height: auto;
+            padding: 1.3rem 0;
+        }
+
+        .education-number {
+            width: 46px;
+            height: 46px;
+        }
+
+        .education-meta {
+            grid-column: 2;
+            align-items: flex-start;
+            min-width: 0;
+        }
+    }
+
+    @media (max-width: 460px) {
+        .education-card-header,
+        .education-body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .education-heading {
+            font-size: 1.75rem;
+        }
+
+        .education-entry {
+            grid-template-columns: 1fr;
+        }
+
+        .education-number,
+        .education-meta {
+            grid-column: 1;
+        }
+
+        .education-meta {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .education-program {
+            font-size: 1.25rem;
+        }
+
+        .education-school {
+            font-size: 1rem;
+        }
+    }
+    </style>
     """
+).strip()
+
+st.markdown(
+    education_css,
+    unsafe_allow_html=True,
 )
 
 
-# =========================================================
-# Technical Skills
-# =========================================================
-st.write("")
-st.subheader("Technical Skills")
-
-st.write(
+education_html = dedent(
     """
-    - 👩‍💻 **Programming:** Python, functional programming,
-      object-oriented programming, Jupyter Notebook, Pandas,
-      FastAPI and Pydantic
-
-    - 🗄️ **Databases and modelling:** SQL, DuckDB, PostgreSQL,
-      pgAdmin, OLTP, OLAP, normalization and conceptual,
-      logical and physical data modelling
-
-    - ☁️ **Cloud and infrastructure:** Azure, Databricks,
-      Terraform and Docker
-
-    - ⚙️ **Data pipelines:** ETL, ELT, Kafka, batch processing,
-      streaming data, Snowflake, Delta Live Tables, Dagster,
-      Airflow, dbt and dimensional modelling
-
-    - 🔄 **Development and CI/CD:** GitHub Actions, Git,
-      Bash and Pytest
-
-    - 📊 **Visualization:** Evidence, Streamlit, Matplotlib,
-      Power BI and Grafana
-
-    - 🤖 **AI Engineering — upcoming Fall 2026:** AI agents,
-      LLMOps, MLflow, monitoring, tracing, governance,
-      evaluation, RAG and vector databases
+    <div class="education-card">
+        <div class="education-card-header">
+            <span class="education-heading">
+                Education &amp; Profile
+            </span>
+        </div>
+        <div class="education-body">
+            <div class="education-entry">
+                <span class="education-number">01</span>
+                <div class="education-information">
+                    <span class="education-program">
+                        Data Engineering
+                    </span>
+                    <span class="education-school">
+                        Stockholms Tekniska Institut
+                    </span>
+                    <span class="education-location">
+                        Stockholm, Sweden
+                    </span>
+                </div>
+                <div class="education-meta">
+                    <span class="education-date">
+                        Sep 2025 — May 2027
+                    </span>
+                    <span class="education-type">
+                        YH Programme
+                    </span>
+                </div>
+            </div>
+            <div class="education-entry">
+                <span class="education-number">02</span>
+                <div class="education-information">
+                    <span class="education-program">
+                        English Literature
+                    </span>
+                    <span class="education-school">
+                        Hokusei Gakuen University
+                    </span>
+                    <span class="education-location">
+                        Sapporo, Japan
+                    </span>
+                </div>
+                <div class="education-meta">
+                    <span class="education-date">
+                        Apr 2015 — Mar 2017
+                    </span>
+                    <span class="education-type">
+                        Associate's Degree
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
     """
+).strip()
+
+st.markdown(
+    education_html,
+    unsafe_allow_html=True,
 )
 
+# =========================================================
+# Technical Skills — Tech Stack Pyramid
+# =========================================================
+if TECH_STACK_IMAGE.exists():
+    tech_stack_base64 = base64.b64encode(
+        TECH_STACK_IMAGE.read_bytes()
+    ).decode("utf-8")
+
+    tech_stack_html = f"""
+    <style>
+    .tech-stack-card {{
+        width: 100%;
+        max-width: 1050px;
+        margin: 1rem auto 3.25rem;
+        padding: 1rem;
+        box-sizing: border-box;
+        background:
+            linear-gradient(
+                145deg,
+                #0b1d2d 0%,
+                #071521 100%
+            );
+        border: 1px solid rgba(100, 230, 179, 0.32);
+        border-radius: 22px;
+        box-shadow:
+            0 22px 50px rgba(0, 0, 0, 0.28),
+            0 0 30px rgba(100, 230, 179, 0.04);
+    }}
+
+    .tech-stack-image {{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 14px;
+    }}
+
+    @media (max-width: 768px) {{
+        .tech-stack-card {{
+            margin-top: 0.5rem;
+            margin-bottom: 2.5rem;
+            padding: 0.5rem;
+            border-radius: 16px;
+        }}
+
+        .tech-stack-image {{
+            border-radius: 11px;
+        }}
+    }}
+    </style>
+
+    <div class="tech-stack-card">
+        <img
+            class="tech-stack-image"
+            src="data:image/png;base64,{tech_stack_base64}"
+            alt="Aira Franco Data Engineering Tech Stack Pyramid"
+        >
+    </div>
+    """
+
+    st.html(tech_stack_html)
+
+else:
+    st.warning(
+        "Tech-stack image not found. Add "
+        "`de_tech_stack_pyramid.png` to the assets folder."
+    )
 
 # =========================================================
 # Work History
