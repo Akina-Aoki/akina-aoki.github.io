@@ -597,62 +597,132 @@ contact_html = dedent(
 
 header_html = dedent(
     """
+    <style>
+    .resume-summary .summary-paragraph {
+        margin: 0 0 1rem;
+        color: #f8fafc;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .resume-summary .summary-paragraph:last-of-type {
+        margin-bottom: 0;
+    }
+    </style>
+
     <h1 class="resume-name">Aira Franco</h1>
-    <p class="resume-role">Aspiring Data Engineer</p>
+
+    <p class="resume-role">
+        Aspiring Data Engineer
+    </p>
+
     <div class="resume-summary">
-        An aspiring data engineer experienced in architecting end-to-end
-        data pipelines and platforms that transform raw data into reliable,
-        tested, analytics-ready data for stakeholders. Experienced in
-        designing pipelines, modelling data and enabling business
-        decision-making through scalable data solutions. Adaptable to new
-        tools, environments and domain-specific data ecosystems.
+        <p class="summary-paragraph">
+            I am an aspiring data engineer who enjoys working behind
+            the scenes to make complex data processes run smoothly.
+            What I enjoy most is seeing messy data become something
+            useful that people can trust.
+        </p>
+
+        <p class="summary-paragraph">
+            I have practical experience architecting end-to-end data
+            pipelines and platforms that transform raw data into
+            reliable, tested, analytics-ready data. I have also worked
+            with pipeline design, data modelling, and scalable solutions
+            that support business decisions. I adapt quickly to new
+            tools, environments, and domain-specific data ecosystems.
+        </p>
+
+        <p class="summary-paragraph">
+            Before moving into data engineering, I worked in
+            hospitality, high-volume retail operations, and
+            English-language teaching. Those roles strengthened my
+            customer focus, communication, adaptability, and attention
+            to detail—from creating welcoming experiences and tailoring
+            lessons to individual learners to maintaining accuracy in
+            fast-moving operational workflows.
+        </p>
+
+        <p class="summary-paragraph">
+        I am naturally operations-minded and find satisfaction in creating workflows that produce clear, dependable results. 
+        I now bring that same mindset to data engineering—building trustworthy, well-structured data foundations 
+        that support better decisions and make analytics and AI systems more reliable.
+        </p>
+
         <span class="work-authorization">
             Permanent work authorization in Sweden —
             no sponsorship required.
         </span>
     </div>
+
     <div class="link-mosaic">
-        <a class="link-card youtube-card"
-           href="https://www.youtube.com/@Aira_Data_Engineering"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Open Aira's YouTube channel">
+        <a
+            class="link-card youtube-card"
+            href="https://www.youtube.com/@Aira_Data_Engineering"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Aira's YouTube channel"
+        >
             <span class="brand-mark youtube-mark">▶</span>
+
             <span class="link-copy">
                 <span class="link-title">YouTube</span>
-                <span class="link-description">Project demos</span>
+                <span class="link-description">
+                    Project demos
+                </span>
             </span>
         </a>
-        <a class="link-card linkedin-card"
-           href="https://www.linkedin.com/in/aira-franco0965/"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Open Aira's LinkedIn profile">
+
+        <a
+            class="link-card linkedin-card"
+            href="https://www.linkedin.com/in/aira-franco0965/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Aira's LinkedIn profile"
+        >
             <span class="brand-mark linkedin-mark">in</span>
+
             <span class="link-copy">
                 <span class="link-title">LinkedIn</span>
-                <span class="link-description">Connect with me</span>
+                <span class="link-description">
+                    Connect with me
+                </span>
             </span>
         </a>
-        <a class="link-card github-card"
-           href="https://github.com/Akina-Aoki"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Open Aira's GitHub profile">
-            <span class="brand-mark github-mark">&lt;/&gt;</span>
+
+        <a
+            class="link-card github-card"
+            href="https://github.com/Akina-Aoki"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Aira's GitHub profile"
+        >
+            <span class="brand-mark github-mark">
+                &lt;/&gt;
+            </span>
+
             <span class="link-copy">
                 <span class="link-title">GitHub</span>
-                <span class="link-description">View repositories</span>
+                <span class="link-description">
+                    View repositories
+                </span>
             </span>
         </a>
-        <a class="link-card blog-card"
-           href="https://hashnode.com/@Aira"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Open Aira's projects blog">
+
+        <a
+            class="link-card blog-card"
+            href="https://hashnode.com/@Aira"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Aira's projects blog"
+        >
             <span class="brand-mark blog-mark">▤</span>
+
             <span class="link-copy">
-                <span class="link-title">Projects Blog</span>
+                <span class="link-title">
+                    Projects Blog
+                </span>
+
                 <span class="link-description">
                     Build notes &amp; stories
                 </span>
@@ -661,7 +731,6 @@ header_html = dedent(
     </div>
     """
 ).strip()
-
 
 # =========================================================
 # Two-Column Header Layout
@@ -710,10 +779,7 @@ with profile_column:
         )
 
 with content_column:
-    st.markdown(
-        header_html,
-        unsafe_allow_html=True,
-    )
+    st.html(header_html)
 
 
 # =========================================================
@@ -1085,247 +1151,1014 @@ else:
         "`de_tech_stack_pyramid.png` to the assets folder."
     )
 
-# =========================================================
-# Work History
-# =========================================================
-st.write("")
-st.subheader("Work History")
-st.write("---")
-
-
-# Job 1
-st.write("🚧 **Operations Assistant | Inditex**")
-st.write("2020 – present")
-st.write("Stockholm, Sweden")
-
-st.write(
-    """
-    - Optimized inventory and logistics workflows across departments,
-      improving product distribution efficiency under strict
-      operational timelines.
-
-    - Developed a strong understanding of stock movement, demand
-      patterns and operational bottlenecks, directly informing my
-      transition into data engineering for inventory and analytics
-      systems.
-
-    - **Skills:** Inventory Management, Retail Operations
-    """
-)
-
-st.write("")
-
-
-# Job 2
-st.write("🚧 **English Language Teacher | Self-employed**")
-st.write("2015 – 2019")
-st.write("Sapporo, Japan")
-
-st.write(
-    """
-    - Founded and operated an English tutoring business alongside
-      university studies.
-
-    - Delivered one-on-one and group lessons for children and adults,
-      focusing on conversation, grammar and university exam readiness.
-
-    - **Skills:** Language Teaching, Lesson Planning
-    """
-)
-
-st.write("")
-
-
-# Job 3
-st.write("🚧 **Translator — Japanese ↔ English | Self-employed**")
-st.write("2015 – 2019")
-st.write("Sapporo, Japan")
-
-st.write(
-    """
-    - Translated business and general documents between Japanese
-      and English with precision and cultural sensitivity.
-
-    - Managed timelines, priorities and delivery while working
-      directly with clients to clarify requirements.
-
-    - **Skills:** Translation, Client Communication
-    """
-)
-
-st.write("")
-
-
-# Job 4
-st.write("🚧 **Hotel Receptionist | The Stay Sapporo Nagomi**")
-st.write("2019")
-st.write("Sapporo, Japan")
-
-st.write(
-    """
-    - Handled front-office operations, guest relations and daily
-      payment reconciliation to support efficient service.
-
-    - **Skills:** Administration, Hospitality Service,
-      Booking Systems
-    """
-)
-
-st.write("")
-
-
-# Job 5
-st.write(
-    "🚧 **Production Assistant | Krispy Kreme Doughnuts Japan**"
-)
-st.write("2018 – 2019")
-st.write("Chitose, Japan")
-
-st.write(
-    """
-    - Assisted with launching food-production workflows for the
-      company's first store in the region.
-
-    - Supported preparation, handling and production-flow
-      coordination.
-
-    - **Skills:** Food Production, Operational Coordination
-    """
-)
-
-st.write("")
-
-
-# Job 6
-st.write("🚧 **Bartender | TK6 International Sports Bar**")
-st.write("2016 – 2018")
-st.write("Sapporo, Japan")
-
-st.write(
-    """
-    - Managed daily bar operations, staff coordination and cost
-      controls while studying at university.
-
-    - **Skills:** Restaurant Operations, Team Coordination
-    """
-)
-
-st.write("")
-
-
-# Job 7
-st.write("🚧 **Front Desk Assistant | Hilton**")
-st.write("2016")
-st.write("Sapporo, Japan")
-
-st.write(
-    """
-    - Completed coursework and an internship involving reception
-      duties and administrative coordination.
-
-    - Helped maintain efficient internal processes and smooth
-      day-to-day operations.
-
-    - **Skills:** Hotel Operations, Administration
-    """
-)
-
-st.write("")
-
 
 # =========================================================
-# Projects
+# Work History Roadmap
 # =========================================================
-st.write("")
-st.subheader("Projects")
-st.write("---")
+from html import escape
 
 
-# Project 1
-st.write(
-    "🏆 **Data Platform for Retail Inventory & Sales**"
-)
+work_history = [
+    {
+        "period": "2020 – Present",
+        "role": "Operations Assistant",
+        "company": "Inditex (Zara)",
+        "location": "Stockholm, Sweden",
+        "icon": "👕",
+        "tone": "gray",
+        "achievements": [
+            (
+                "Optimized inventory and logistics workflows across "
+                "departments, improving product distribution efficiency "
+                "under strict operational timelines."
+            ),
+            (
+                "Developed a strong understanding of stock movement, "
+                "demand patterns and operational bottlenecks, directly "
+                "informing my transition into data engineering."
+            ),
+        ],
+        "skills": [
+            "Inventory Management",
+            "Retail Operations",
+            "Logistics",
+            "Time Management",
+        ],
+    },
+    {
+        "period": "2019",
+        "role": "Hotel Receptionist",
+        "company": "The Stay Sapporo Nagomi",
+        "location": "Sapporo, Japan",
+        "icon": "🛎️",
+        "tone": "pink",
+        "achievements": [
+            (
+                "Handled front-office operations, guest relations and "
+                "daily payment reconciliation to support efficient service."
+            ),
+            (
+                "Managed hotel inventories for company supplies. "
+                "Inspected housekeeping's work after cleaning to maintain "
+                "hotel cleanliness standards."
+            ),
+        ],
+        "skills": [
+            "Administration",
+            "Hospitality Service",
+            "Booking Systems",
+        ],
+    },
+    {
+        "period": "2018 – 2019",
+        "role": "Production Assistant",
+        "company": "Krispy Kreme Doughnuts Japan",
+        "location": "Chitose, Japan",
+        "icon": "🍩",
+        "tone": "blue",
+        "achievements": [
+            (
+                "Assisted with launching food-production workflows for "
+                "the company's first store in the region."
+            ),
+            (
+                "Supported preparation and worked as part of the "
+                "production crew for the food products."
+            ),
+        ],
+        "skills": [
+            "Food Production",
+            "Operational Coordination",
+        ],
+    },
+    {
+        "period": "2016 – 2018",
+        "role": "Bartender",
+        "company": "TK6 International Sports Bar",
+        "location": "Sapporo, Japan",
+        "icon": "🍸",
+        "tone": "olive",
+        "achievements": [
+            (
+                "Managed daily bar operations, staff coordination, "
+                "daily cash reconciliation and cost controls while "
+                "studying at university."
+            ),
+        ],
+        "skills": [
+            "Restaurant Operations",
+            "Team Coordination",
+            "Interpersonal Communication",
+        ],
+    },
+    {
+        "period": "2016",
+        "role": "Front Desk Assistant",
+        "company": "Hilton",
+        "location": "Niseko, Japan",
+        "icon": "🛎️",
+        "tone": "gray",
+        "achievements": [
+            (
+                "Completed coursework and an internship involving "
+                "reception duties and administrative coordination."
+            ),
+            (
+                "Helped maintain efficient internal processes and "
+                "smooth day-to-day operations."
+            ),
+        ],
+        "skills": [
+            "Hotel Operations",
+            "Administration",
+        ],
+    },
+    {
+        "period": "2015 – 2019",
+        "role": "English Language Teacher",
+        "company": "Self-employed",
+        "location": "Sapporo, Japan",
+        "icon": "🎓",
+        "tone": "cream",
+        "achievements": [
+            (
+                "Founded and operated an English tutoring business "
+                "alongside university studies."
+            ),
+            (
+                "Delivered one-on-one and group lessons for children "
+                "and adults, focusing on conversation, grammar and "
+                "university exam readiness."
+            ),
+        ],
+        "skills": [
+            "Language Teaching",
+            "Lesson Planning",
+            "Language Level Assessment",
+        ],
+    },
+    {
+        "period": "2015 – 2019",
+        "role": "Translator — Japanese ↔ English",
+        "company": "Self-employed",
+        "location": "Sapporo, Japan",
+        "icon": "文",
+        "tone": "pink",
+        "achievements": [
+            (
+                "Translated business and general documents between "
+                "Japanese and English with precision and cultural "
+                "sensitivity."
+            ),
+            (
+                "Managed timelines, priorities and delivery while "
+                "working directly with clients to clarify requirements."
+            ),
+        ],
+        "skills": [
+            "Translation",
+            "Client Communication",
+        ],
+    },
+]
 
-st.write(
+
+def build_work_history_card(job, index):
+    side = "left" if index % 2 == 0 else "right"
+
+    # Keep the current position expanded when the page loads.
+    open_attribute = "open" if index == 0 else ""
+
+    achievements_html = "".join(
+        f"<li>{escape(achievement)}</li>"
+        for achievement in job["achievements"]
+    )
+
+    skills_html = "".join(
+        f'<span class="wh-skill">{escape(skill)}</span>'
+        for skill in job["skills"]
+    )
+
+    return f"""
+        <article class="wh-item wh-{side}">
+            <details
+                class="wh-card wh-tone-{escape(job['tone'])}"
+                {open_attribute}
+            >
+                <summary class="wh-summary">
+                    <div class="wh-card-header">
+                        <div class="wh-icon" aria-hidden="true">
+                            {escape(job['icon'])}
+                        </div>
+
+                        <div class="wh-title-group">
+                            <span class="wh-period">
+                                {escape(job['period'])}
+                            </span>
+
+                            <h3 class="wh-role">
+                                {escape(job['role'])}
+                                <span class="wh-role-divider">|</span>
+                                {escape(job['company'])}
+                            </h3>
+
+                            <p class="wh-location">
+                                <span aria-hidden="true">●</span>
+                                {escape(job['location'])}
+                            </p>
+                        </div>
+
+                        <span
+                            class="wh-toggle"
+                            aria-hidden="true"
+                        ></span>
+                    </div>
+                </summary>
+
+                <div class="wh-card-content">
+                    <div class="wh-divider"></div>
+
+                    <ul class="wh-achievements">
+                        {achievements_html}
+                    </ul>
+
+                    <div class="wh-divider"></div>
+
+                    <div class="wh-skills">
+                        {skills_html}
+                    </div>
+                </div>
+            </details>
+
+            <div class="wh-milestone" aria-hidden="true">
+                <span></span>
+            </div>
+        </article>
     """
-    *Docker | FastAPI | Kafka | Data Streaming | ETL | Pandas |
-    Pydantic | PostgreSQL | Supabase | DuckDB | Evidence*
-    """
+
+
+work_history_cards = "".join(
+    build_work_history_card(job, index)
+    for index, job in enumerate(work_history)
 )
 
-st.write(
-    """
-    - Designed and implemented a data platform integrating APIs,
-      streaming events and PostgreSQL to provide near real-time
-      visibility into inventory and sales.
 
-    - Enabled tracking of product performance and stock levels,
-      supporting faster operational decisions and reducing the
-      risk of stockouts.
-    """
-)
+work_history_html = """
+<style>
+    /* =====================================================
+       Work History colour palette
+       ===================================================== */
+    .work-history-roadmap {
+        --wh-background: #28254F;
+        --wh-card-gray: #506695;
+        --wh-card-blue: #5271C0;
+        --wh-card-navy: #283B60;
+        --wh-card-sky: #95B2F8;
+        --wh-card-lavender: #B5C0F3;
 
-st.write("")
+        --wh-text-light: #F7F8FF;
+        --wh-text-dark: #28254F;
+        --wh-line: #95B2F8;
+        --wh-accent: #B5C0F3;
+
+        box-sizing: border-box;
+        width: 100%;
+        margin: 2rem auto;
+        padding: 3rem 2.25rem 3.5rem;
+        overflow: hidden;
+
+        color: var(--wh-text-light);
+        background: var(--wh-background);
+        border: 1px solid rgba(149, 178, 248, 0.3);
+        border-radius: 30px;
+
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+    }
+
+    .work-history-roadmap *,
+    .work-history-roadmap *::before,
+    .work-history-roadmap *::after {
+        box-sizing: border-box;
+    }
+
+    /* =====================================================
+       Heading
+       ===================================================== */
+    .wh-heading-area {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .wh-heading {
+        margin: 0;
+        color: var(--wh-text-light) !important;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.045em;
+    }
+
+    .wh-instruction {
+        margin: 0.85rem 0 0;
+        color: var(--wh-card-lavender) !important;
+        font-size: 0.95rem;
+        font-weight: 650;
+    }
+
+    .wh-heading-decoration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        margin-top: 1rem;
+    }
+
+    .wh-heading-decoration::before,
+    .wh-heading-decoration::after {
+        width: 46px;
+        height: 4px;
+        content: "";
+        background: var(--wh-card-blue);
+        border-radius: 999px;
+    }
+
+    .wh-heading-decoration span {
+        width: 9px;
+        height: 9px;
+        background: var(--wh-card-sky);
+        border-radius: 50%;
+    }
+
+    /* =====================================================
+       Timeline
+       ===================================================== */
+    .wh-timeline {
+        position: relative;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .wh-timeline::before {
+        position: absolute;
+        z-index: 0;
+        top: 54px;
+        bottom: 54px;
+        left: 50%;
+
+        width: 3px;
+        content: "";
+        transform: translateX(-50%);
+
+        background: var(--wh-line);
+        border-radius: 999px;
+    }
+
+    .wh-item {
+        position: relative;
+        z-index: 1;
+
+        display: grid;
+        grid-template-columns:
+            minmax(0, 1fr)
+            76px
+            minmax(0, 1fr);
+        align-items: start;
+
+        width: 100%;
+        margin-bottom: 2.25rem;
+    }
+
+    .wh-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .wh-left .wh-card {
+        grid-column: 1;
+    }
+
+    .wh-right .wh-card {
+        grid-column: 3;
+    }
+
+    /* =====================================================
+       Milestones and connectors
+       ===================================================== */
+    .wh-milestone {
+        position: relative;
+        z-index: 4;
+
+        display: grid;
+        grid-row: 1;
+        grid-column: 2;
+        place-items: center;
+        align-self: start;
+        justify-self: center;
+
+        width: 34px;
+        height: 34px;
+        margin-top: 46px;
+
+        background: var(--wh-background);
+        border: 4px solid var(--wh-background);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px var(--wh-line);
+    }
+
+    .wh-milestone span {
+        width: 13px;
+        height: 13px;
+        background: var(--wh-card-blue);
+        border-radius: 50%;
+    }
+
+    .wh-item:nth-child(even) .wh-milestone span {
+        background: var(--wh-card-lavender);
+    }
+
+    .wh-left .wh-card::after,
+    .wh-right .wh-card::after {
+        position: absolute;
+        top: 62px;
+
+        width: 39px;
+        content: "";
+
+        border-top: 2px dashed var(--wh-line);
+    }
+
+    .wh-left .wh-card::after {
+        right: -39px;
+    }
+
+    .wh-right .wh-card::after {
+        left: -39px;
+    }
+
+    /* =====================================================
+       Experience cards
+       ===================================================== */
+    .wh-card {
+        position: relative;
+        min-width: 0;
+        padding: 1.45rem;
+
+        border: 2px solid var(--wh-line);
+        border-radius: 24px;
+        box-shadow:
+            0 9px 0 rgba(149, 178, 248, 0.13),
+            0 20px 35px rgba(0, 0, 0, 0.22);
+
+        transition:
+            transform 180ms ease,
+            box-shadow 180ms ease;
+    }
+
+    .wh-card[open] {
+        box-shadow:
+            0 10px 0 rgba(149, 178, 248, 0.17),
+            0 24px 42px rgba(0, 0, 0, 0.32);
+    }
+
+    .wh-tone-gray {
+        color: var(--wh-text-light);
+        background: var(--wh-card-gray);
+    }
+
+    .wh-tone-pink {
+        color: var(--wh-text-dark);
+        background: var(--wh-card-lavender);
+    }
+
+    .wh-tone-blue {
+        color: var(--wh-text-light);
+        background: var(--wh-card-blue);
+    }
+
+    .wh-tone-olive {
+        color: var(--wh-text-light);
+        background: var(--wh-card-navy);
+    }
+
+    .wh-tone-cream {
+        color: var(--wh-text-dark);
+        background: var(--wh-card-sky);
+    }
+
+    /* =====================================================
+       Interactive summary
+       ===================================================== */
+    .wh-summary {
+        display: block;
+        position: relative;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+        cursor: pointer;
+        border-radius: inherit;
+    }
+
+    .wh-summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .wh-summary::marker {
+        content: "";
+    }
+
+    .wh-summary:focus-visible {
+        outline: 3px solid var(--wh-card-lavender);
+        outline-offset: 7px;
+    }
+
+    /* =====================================================
+       Card header
+       ===================================================== */
+    .wh-card-header {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 74px minmax(0, 1fr);
+        gap: 1rem;
+        align-items: start;
+
+        padding-right: 0;
+        padding-bottom: 3.65rem;
+    }
+
+    .wh-icon {
+        display: grid;
+        place-items: center;
+
+        width: 74px;
+        height: 74px;
+
+        color: var(--wh-text-dark);
+        background: var(--wh-card-lavender);
+        border: 2px dashed var(--wh-card-navy);
+        border-radius: 50%;
+
+        font-size: 1.8rem;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    .wh-title-group {
+        min-width: 0;
+    }
+
+    .wh-period {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        margin-bottom: 0.65rem;
+        padding: 0.3rem 0.85rem;
+
+        color: var(--wh-text-light);
+        background: var(--wh-card-navy);
+        border-radius: 999px;
+
+        font-size: 0.84rem;
+        font-weight: 800;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .wh-tone-gray .wh-period,
+    .wh-tone-blue .wh-period,
+    .wh-tone-olive .wh-period {
+        color: var(--wh-text-dark);
+        background: var(--wh-card-sky);
+    }
+
+    .wh-role {
+        margin: 0;
+
+        color: inherit !important;
+        font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+        font-weight: 800;
+        line-height: 1.27;
+        letter-spacing: -0.018em;
+        overflow-wrap: anywhere;
+    }
+
+    .wh-role-divider {
+        opacity: 0.58;
+    }
+
+    .wh-location {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+
+        margin: 0.65rem 0 0;
+
+        color: inherit !important;
+        font-size: 0.92rem;
+        font-weight: 600;
+        line-height: 1.4;
+        opacity: 0.92;
+    }
+
+    .wh-location span {
+        color: var(--wh-card-lavender);
+        font-size: 0.67rem;
+    }
+
+    .wh-tone-pink .wh-location span,
+    .wh-tone-cream .wh-location span {
+        color: var(--wh-card-blue);
+    }
+
+    /* =====================================================
+       View details / Hide details control
+       ===================================================== */
+    .wh-toggle {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+
+        width: 100%;
+        min-height: 44px;
+        padding: 0.6rem 1rem;
+
+        color: var(--wh-text-light);
+        background: var(--wh-card-navy);
+        border: 1.5px solid var(--wh-line);
+        border-radius: 12px;
+
+        font-size: 0.86rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0.01em;
+
+        transition:
+            color 180ms ease,
+            background-color 180ms ease,
+            transform 180ms ease;
+    }
+
+    .wh-toggle::before {
+        content: "View details";
+    }
+
+    .wh-toggle::after {
+        display: inline-block;
+        margin-top: -0.2rem;
+
+        content: "⌄";
+
+        font-size: 1.8rem;
+        font-weight: 900;
+        line-height: 0.55;
+
+        transition: transform 180ms ease;
+    }
+
+    .wh-card[open] .wh-toggle::before {
+        content: "Hide details";
+    }
+
+    .wh-card[open] .wh-toggle::after {
+        transform: rotate(180deg);
+    }
+
+    .wh-tone-gray .wh-toggle,
+    .wh-tone-blue .wh-toggle,
+    .wh-tone-olive .wh-toggle {
+        color: var(--wh-text-dark);
+        background: var(--wh-card-sky);
+    }
+
+    /* =====================================================
+       Expanded content
+       ===================================================== */
+    .wh-card-content {
+        animation: wh-open-card 220ms ease-out;
+    }
+
+    @keyframes wh-open-card {
+        from {
+            opacity: 0;
+            transform: translateY(-7px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .wh-divider {
+        width: 100%;
+        margin: 1.15rem 0;
+        border-top: 2px dashed currentColor;
+        opacity: 0.52;
+    }
+
+    .wh-achievements {
+        display: grid;
+        gap: 0.72rem;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .wh-achievements li {
+        position: relative;
+        margin: 0;
+        padding-left: 1rem;
+
+        color: inherit !important;
+        font-size: 0.95rem;
+        font-weight: 520;
+        line-height: 1.55;
+    }
+
+    .wh-achievements li::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        content: "›";
+        font-weight: 900;
+    }
+
+    .wh-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+    }
+
+    .wh-skill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0.42rem 0.8rem;
+
+        color: var(--wh-text-dark);
+        background: var(--wh-card-lavender);
+        border: 1.5px solid var(--wh-card-navy);
+        border-radius: 999px;
+
+        font-size: 0.78rem;
+        font-weight: 750;
+        line-height: 1.2;
+    }
+
+    /* =====================================================
+       Hover and reduced motion
+       ===================================================== */
+    @media (hover: hover) {
+        .wh-summary:hover .wh-toggle {
+            color: var(--wh-text-dark);
+            background: var(--wh-card-sky);
+            transform: translateY(-2px);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .wh-card,
+        .wh-toggle,
+        .wh-toggle::after,
+        .wh-card-content {
+            animation: none;
+            transition: none;
+        }
+    }
+
+    /* =====================================================
+       Tablet
+       ===================================================== */
+    @media (max-width: 900px) {
+        .work-history-roadmap {
+            padding-right: 1.4rem;
+            padding-left: 1.4rem;
+        }
+
+        .wh-item {
+            grid-template-columns:
+                minmax(0, 1fr)
+                62px
+                minmax(0, 1fr);
+        }
+
+        .wh-card {
+            padding: 1.15rem;
+            border-radius: 20px;
+        }
+
+        .wh-card-header {
+            grid-template-columns: 58px minmax(0, 1fr);
+            gap: 0.8rem;
+        }
+
+        .wh-icon {
+            width: 58px;
+            height: 58px;
+            font-size: 1.4rem;
+        }
+
+        .wh-left .wh-card::after,
+        .wh-right .wh-card::after {
+            width: 31px;
+        }
+
+        .wh-left .wh-card::after {
+            right: -31px;
+        }
+
+        .wh-right .wh-card::after {
+            left: -31px;
+        }
+    }
+
+    /* =====================================================
+       Mobile
+       ===================================================== */
+    @media (max-width: 700px) {
+        .work-history-roadmap {
+            margin: 1rem auto;
+            padding: 2.2rem 1rem 2.5rem;
+            border-radius: 22px;
+        }
+
+        .wh-heading-area {
+            margin-bottom: 2.25rem;
+        }
+
+        .wh-heading {
+            font-size: 2.25rem;
+        }
+
+        .wh-instruction {
+            font-size: 0.86rem;
+        }
+
+        .wh-timeline::before {
+            top: 50px;
+            bottom: 50px;
+            left: 17px;
+        }
+
+        .wh-item {
+            grid-template-columns: 34px minmax(0, 1fr);
+            column-gap: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .wh-left .wh-card,
+        .wh-right .wh-card {
+            grid-column: 2;
+        }
+
+        .wh-milestone {
+            grid-row: 1;
+            grid-column: 1;
+
+            width: 28px;
+            height: 28px;
+            margin-top: 43px;
+        }
+
+        .wh-milestone span {
+            width: 10px;
+            height: 10px;
+        }
+
+        .wh-left .wh-card::after,
+        .wh-right .wh-card::after {
+            top: 56px;
+            right: auto;
+            left: -18px;
+            width: 18px;
+        }
+
+        .wh-card {
+            padding: 1.1rem;
+        }
+
+        .wh-card-header {
+            grid-template-columns: 52px minmax(0, 1fr);
+            gap: 0.75rem;
+            padding-bottom: 3.5rem;
+        }
+
+        .wh-icon {
+            width: 52px;
+            height: 52px;
+            font-size: 1.25rem;
+        }
+
+        .wh-period {
+            min-height: 27px;
+            margin-bottom: 0.5rem;
+            padding: 0.28rem 0.68rem;
+            font-size: 0.73rem;
+        }
+
+        .wh-role {
+            font-size: 1rem;
+        }
+
+        .wh-location,
+        .wh-achievements li {
+            font-size: 0.86rem;
+        }
+
+        .wh-toggle {
+            min-height: 42px;
+            font-size: 0.8rem;
+        }
+
+        .wh-toggle::after {
+            font-size: 1.65rem;
+        }
+
+        .wh-skill {
+            min-height: 31px;
+            padding: 0.36rem 0.68rem;
+            font-size: 0.72rem;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .work-history-roadmap {
+            padding-right: 0.7rem;
+            padding-left: 0.7rem;
+        }
+
+        .wh-item {
+            grid-template-columns: 30px minmax(0, 1fr);
+            column-gap: 0.65rem;
+        }
+
+        .wh-timeline::before {
+            left: 15px;
+        }
+
+        .wh-card {
+            padding: 0.95rem;
+            border-radius: 18px;
+        }
+
+        .wh-card-header {
+            grid-template-columns: 1fr;
+        }
+
+        .wh-icon {
+            width: 46px;
+            height: 46px;
+        }
+
+        .wh-left .wh-card::after,
+        .wh-right .wh-card::after {
+            left: -14px;
+            width: 14px;
+        }
+    }
+</style>
+
+<section
+    class="work-history-roadmap"
+    aria-labelledby="work-history-heading"
+>
+    <div class="wh-heading-area">
+        <h2 id="work-history-heading" class="wh-heading">
+            Work History
+        </h2>
+
+        <p class="wh-instruction">
+            Select a role to view its responsibilities and skills.
+        </p>
+
+        <div class="wh-heading-decoration" aria-hidden="true">
+            <span></span>
+        </div>
+    </div>
+
+    <div class="wh-timeline">
+""" + work_history_cards + """
+    </div>
+</section>
+"""
 
 
-# Project 2
-st.write(
-    "🏆 **DataOps Pipeline: Validated ETL with PostgreSQL**"
-)
-
-st.write(
-    "*SQL | DuckDB | Pandas | Pydantic | PostgreSQL | Evidence*"
-)
-
-st.write(
-    """
-    - Built a validated ETL pipeline that transforms raw CSV data
-      into clean, analytics-ready datasets.
-
-    - Applied data-quality rules with Pydantic and Pandas.
-
-    - Loaded accepted and rejected records into PostgreSQL for
-      transparency and reliable reporting.
-    """
-)
-
-st.write("")
-
-
-# Project 3
-st.write("🏆 **YrkesCo Vocational School Database**")
-
-st.write(
-    "*Data Modelling | OLTP | PostgreSQL | Docker*"
-)
-
-st.write(
-    """
-    - Built a structured relational database for organizing and
-      managing vocational-school data.
-
-    - Applied normalization and data-integrity rules to keep the
-      database accurate, consistent and suitable for daily operations.
-    """
-)
-
-st.write("")
-
-
-# Project 4
-st.write(
-    "🏆 **Sakila Database Exploratory Data Analysis**"
-)
-
-st.write(
-    "*SQL | DuckDB | Pandas | Evidence*"
-)
-
-st.write(
-    """
-    - Explored and analyzed the Sakila dataset using SQL to identify
-      trends, patterns and key insights.
-
-    - Prepared clean, structured datasets for dashboards and reporting.
-    """
-)
+st.html(work_history_html)

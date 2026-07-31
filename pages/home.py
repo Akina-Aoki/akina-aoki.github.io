@@ -590,18 +590,34 @@ st.html(
                 <div class="aira-profile-content">
 
                     <h1 class="aira-profile-name">
-                        Hey, I’m Aira 👋
+                        Hello, I’m Aira 👋
                     </h1>
 
                     <p class="aira-profile-role">
-                        An aspiring data engineer who genuinely enjoys working
-                        behind the scenes to make data and AI actually work.
+                        Courageous and curios.
+                        I have never been afraid to take a calculated risk or start again.
+                        \n  
                     </p>
 
                     <p class="aira-profile-summary">
-                        I build data pipelines, explore modern data platforms,
-                        and turn raw data into something reliable, structured,
-                        and useful.
+                        Growing up between the Philippines and Japan, and later building a new life in Sweden, 
+                        taught me how to adapt, rebuild connections, learn new languages, and keep moving forward 
+                        even when the path is uncertain.
+                        \n
+                    </p>
+
+
+                    <p class="aira-profile-summary"> 
+                        Today, I am an aspiring data engineer and a mother of two pursuing my long-held dream of working in tech. 
+                        What defines me is not that every step has been easy, but that I continue to show up. 
+                        I am willing to begin as a beginner, ask questions, learn from setbacks, and put in the work required to improve.
+                        \n
+                    </p>
+
+                    <p class="aira-profile-summary"> 
+                        That persistence now drives my ambition to build reliable data foundations for analytics and AI. 
+                        I bring resilience, curiosity, attention to detail, and a genuine interest in people to every challenge I take on.
+                        \n
                     </p>
 
                     <div class="aira-profile-location">
