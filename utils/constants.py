@@ -3,6 +3,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 ASSETS_PATH = PROJECT_ROOT / "assets"
+STYLES_PATH = ASSETS_PATH / "style"
 
 PROFILE_IMAGE = ASSETS_PATH / "profile_pic.jpg"
 ROADMAP_IMAGE = ASSETS_PATH / "roadmap.png"
