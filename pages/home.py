@@ -3,20 +3,15 @@ from html import escape
 
 import streamlit as st
 
-
-# =========================================================
-# Project paths
-# =========================================================
-
 from utils.constants import PROFILE_IMAGE, ROADMAP_IMAGE, STYLES_PATH
 from utils.helpers import image_to_data_uri, load_css
+
 
 # =========================================================
 # External links
 # =========================================================
 
 GITHUB_URL = "https://github.com/Akina-Aoki"
-
 BLOG_URL = "https://hashnode.com/@Aira"
 LINKEDIN_URL = "https://www.linkedin.com/in/aira-franco0965/"
 
@@ -113,7 +108,6 @@ if ROADMAP_IMAGE.exists():
 
     roadmap_html = f"""
     <section class="aira-roadmap-card">
-
         <div class="aira-roadmap-viewport">
             <img
                 class="aira-roadmap-image"
@@ -125,19 +119,16 @@ if ROADMAP_IMAGE.exists():
         <p class="aira-mobile-hint">
             Swipe horizontally to explore the full map.
         </p>
-
     </section>
     """
 
 else:
     roadmap_html = """
     <section class="aira-roadmap-card">
-
         <div class="aira-file-warning">
             The roadmap image could not be found. Add
             <strong>roadmap.png</strong> inside the assets folder.
         </div>
-
     </section>
     """
 
@@ -149,8 +140,8 @@ else:
 load_css(STYLES_PATH / "home.css")
 
 st.html(
-    f"""<main class="aira-home">
-
+    f"""
+    <main class="aira-home">
 
         <!-- Profile and links -->
 
@@ -171,11 +162,71 @@ st.html(
                     </h1>
 
                     <p class="aira-profile-role">
-                        Courageous and curios.
-                        I have never been afraid to take a calculated risk or start again.
-                        \n  
+                        Curious and resilient. 
+                        I know what it means to be afraid, 
+                        but I possess the bravery to push through it, 
+                        take calculated risks, and start over when it counts.
                     </p>
-@@ -658,26 +240,26 @@ st.html(
+
+                    <p class="aira-profile-summary">
+                        Growing up between the Philippines and Japan, and later
+                        building a new life in Sweden, taught me how to adapt,
+                        rebuild connections, learn new languages, and keep
+                        moving forward even when the path is uncertain.
+                    </p>
+
+                    <p class="aira-profile-summary">
+                        Today, I am an aspiring data engineer and a mother of
+                        two pursuing my long-held dream of working in tech.
+                        What defines me is not that every step has been easy,
+                        but that I continue to show up. I am willing to begin
+                        as a beginner, ask questions, learn from setbacks, and
+                        put in the work required to improve.
+                    </p>
+
+                    <p class="aira-profile-summary">
+                        That persistence now drives my ambition to build
+                        reliable data foundations for analytics and AI. I bring
+                        resilience, curiosity, attention to detail, and a
+                        genuine interest in people to every challenge I take on.
+                    </p>
+
+                    <div class="aira-profile-location">
+                        📍 Based in Stockholm
+                    </div>
+
+                </div>
+
+            </article>
+
+            <nav
+                class="aira-profile-links"
+                aria-label="Aira Franco's professional links"
+            >
+                {links_html}
+            </nav>
+
+        </section>
+
+
+        <!-- Personal introduction -->
+
+        <section class="aira-introduction-card">
+
+            <div class="aira-section-heading">
+                <span>The person behind the pipelines</span>
+                <span aria-hidden="true">⚙️</span>
+            </div>
+
+            <p>
+                The data engineering ecosystem evolves incredibly fast, with
+                new tools, platforms, and frameworks appearing all the time. 🚀
+            </p>
+
+            <p>
+                But I believe strong data engineers should understand the
+                foundations first: the operational and technical architectures,
+                and the <em>whys</em> and <em>hows</em> behind how data is
                 collected, stored, modelled, transformed, tested, and delivered
                 at different scales.
             </p>
@@ -197,7 +248,6 @@ st.html(
         <!-- Competency roadmap image -->
 
         {roadmap_html}
-
 
     </main>
     """
