@@ -8,23 +8,17 @@ import streamlit as st
 # =========================================================
 # Project Paths & Assets
 # =========================================================
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-
-PROFILE_IMAGE = PROJECT_ROOT / "assets" / "profile_pic.jpg"
-
-RESUME_CANDIDATES = [
-    PROJECT_ROOT / "assets" / "CV_Aira_Franco_en.pdf",
-    PROJECT_ROOT / "assets" / "resume.pdf",
-]
+from utils.constants import (
+    PROFILE_IMAGE,
+    RESUME_CANDIDATES,
+    TECH_STACK_IMAGE,
+)
 
 RESUME_FILE = next(
     (file for file in RESUME_CANDIDATES if file.exists()),
     RESUME_CANDIDATES[0],
 )
 
-TECH_STACK_IMAGE = (
-    PROJECT_ROOT / "assets" / "de_tech_stack_pyramid.png"
-)
 
 # =========================================================
 # Page Styling

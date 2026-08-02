@@ -10,10 +10,7 @@ import streamlit as st
 # Project paths
 # =========================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-
-PROFILE_IMAGE = PROJECT_ROOT / "assets" / "profile_pic.jpg"
-ROADMAP_IMAGE = PROJECT_ROOT / "assets" / "roadmap.png"
+from utils.constants import PROFILE_IMAGE, ROADMAP_IMAGE
 
 
 # =========================================================
