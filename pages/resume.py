@@ -1,7 +1,6 @@
 # imports
-from pathlib import Path
+from html import escape
 from textwrap import dedent
-import base64
 
 import streamlit as st
 
@@ -16,7 +15,7 @@ from utils.constants import (
     TECH_STACK_IMAGE,
 )
 
-from utils.helpers import load_css
+from utils.helpers import image_to_data_uri, load_css
 
 RESUME_FILE = next(
     (file for file in RESUME_CANDIDATES if file.exists()),
@@ -325,16 +324,14 @@ st.markdown(
 # Technical Skills — Tech Stack Pyramid
 # =========================================================
 if TECH_STACK_IMAGE.exists():
-    tech_stack_base64 = base64.b64encode(
-        TECH_STACK_IMAGE.read_bytes()
-    ).decode("utf-8")
+    tech_stack_image_uri = image_to_data_uri(TECH_STACK_IMAGE)
 
     tech_stack_html = f"""
 
     <div class="tech-stack-card">
         <img
             class="tech-stack-image"
-            src="data:image/png;base64,{tech_stack_base64}"
+            src="{tech_stack_image_uri}"
             alt="Aira Franco Data Engineering Tech Stack Pyramid"
         >
     </div>
@@ -352,9 +349,6 @@ else:
 # =========================================================
 # Work History Roadmap
 # =========================================================
-from html import escape
-
-
 work_history = [
     {
         "period": "2020 – Present",
