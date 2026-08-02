@@ -149,11 +149,7 @@ else:
 load_css(STYLES_PATH / "home.css")
 
 st.html(
-    f"""
-    </style>
-
-
-    <main class="aira-home">
+    f"""<main class="aira-home">
 
 
         <!-- Profile and links -->
@@ -179,65 +175,7 @@ st.html(
                         I have never been afraid to take a calculated risk or start again.
                         \n  
                     </p>
-
-                    <p class="aira-profile-summary">
-                        Growing up between the Philippines and Japan, and later building a new life in Sweden, 
-                        taught me how to adapt, rebuild connections, learn new languages, and keep moving forward 
-                        even when the path is uncertain.
-                        \n
-                    </p>
-
-
-                    <p class="aira-profile-summary"> 
-                        Today, I am an aspiring data engineer and a mother of two pursuing my long-held dream of working in tech. 
-                        What defines me is not that every step has been easy, but that I continue to show up. 
-                        I am willing to begin as a beginner, ask questions, learn from setbacks, and put in the work required to improve.
-                        \n
-                    </p>
-
-                    <p class="aira-profile-summary"> 
-                        That persistence now drives my ambition to build reliable data foundations for analytics and AI. 
-                        I bring resilience, curiosity, attention to detail, and a genuine interest in people to every challenge I take on.
-                        \n
-                    </p>
-
-                    <div class="aira-profile-location">
-                        📍 Based in Stockholm
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <nav
-                class="aira-profile-links"
-                aria-label="Aira Franco's professional links"
-            >
-                {links_html}
-            </nav>
-
-        </section>
-
-
-        <!-- Personal introduction -->
-
-        <section class="aira-introduction-card">
-
-            <div class="aira-section-heading">
-                <span>The person behind the pipelines</span>
-                <span aria-hidden="true">⚙️</span>
-            </div>
-
-            <p>
-                The data engineering ecosystem evolves incredibly fast, with
-                new tools, platforms, and frameworks appearing all the time. 🚀
-            </p>
-
-            <p>
-                But I believe strong data engineers should understand the
-                foundations first: the operational and technical architectures,
-                and the <em>whys</em> and <em>hows</em> behind how data is
+@@ -658,26 +240,26 @@ st.html(
                 collected, stored, modelled, transformed, tested, and delivered
                 at different scales.
             </p>
