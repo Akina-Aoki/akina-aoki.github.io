@@ -1,99 +1,59 @@
+from html import escape
 import streamlit as st
 
-
-# =========================================================
-# Projects
-# =========================================================
-st.write("")
-st.subheader("Projects")
-st.write("---")
+from content.projects import PROJECTS, PROJECTS_BLOG_URL
+from utils.constants import STYLES_PATH
+from utils.helpers import load_css
 
 
-# Project 1
-st.write(
-    "🏆 **Data Platform for Retail Inventory & Sales**"
+def build_project_card(project: dict[str, object]) -> str:
+    """Build the accessible anchor markup for one project card."""
+
+    title = escape(str(project["title"]))
+    category = escape(str(project["category"]))
+    summary = escape(str(project["summary"]))
+    icon = escape(str(project["icon"]))
+    url = escape(str(project["url"]), quote=True)
+    accessible_label = escape(f"Read the {project['title']} project article", quote=True)
+    technology_labels = "".join(
+        f'<span class="aira-project-technology">{escape(str(technology))}</span>'
+        for technology in project["technologies"]
+    )
+
+    return (
+        f'<a class="aira-project-card" href="{url}" target="_blank" '
+        f'rel="noopener noreferrer" aria-label="{accessible_label}">'
+        f'<span class="aira-project-icon" aria-hidden="true">{icon}</span>'
+        f'<span class="aira-project-category">{category}</span>'
+        f'<h2 class="aira-project-title">{title}</h2>'
+        f'<p class="aira-project-summary">{summary}</p>'
+        f'<span class="aira-project-technologies">{technology_labels}</span>'
+        "</a>"
+    )
+
+
+load_css(STYLES_PATH / "projects.css")
+
+projects_html = "".join(
+    build_project_card(project)
+    for project in PROJECTS
 )
+blog_url = escape(PROJECTS_BLOG_URL, quote=True)
 
-st.write(
-    """
-    *Docker | FastAPI | Kafka | Data Streaming | ETL | Pandas |
-    Pydantic | PostgreSQL | Supabase | DuckDB | Evidence*
-    """
-)
-
-st.write(
-    """
-    - Designed and implemented a data platform integrating APIs,
-      streaming events and PostgreSQL to provide near real-time
-      visibility into inventory and sales.
-
-    - Enabled tracking of product performance and stock levels,
-      supporting faster operational decisions and reducing the
-      risk of stockouts.
-    """
-)
-
-st.write("")
-
-
-# Project 2
-st.write(
-    "🏆 **DataOps Pipeline: Validated ETL with PostgreSQL**"
-)
-
-st.write(
-    "*SQL | DuckDB | Pandas | Pydantic | PostgreSQL | Evidence*"
-)
-
-st.write(
-    """
-    - Built a validated ETL pipeline that transforms raw CSV data
-      into clean, analytics-ready datasets.
-
-    - Applied data-quality rules with Pydantic and Pandas.
-
-    - Loaded accepted and rejected records into PostgreSQL for
-      transparency and reliable reporting.
-    """
-)
-
-st.write("")
-
-
-# Project 3
-st.write("🏆 **YrkesCo Vocational School Database**")
-
-st.write(
-    "*Data Modelling | OLTP | PostgreSQL | Docker*"
-)
-
-st.write(
-    """
-    - Built a structured relational database for organizing and
-      managing vocational-school data.
-
-    - Applied normalization and data-integrity rules to keep the
-      database accurate, consistent and suitable for daily operations.
-    """
-)
-
-st.write("")
-
-
-# Project 4
-st.write(
-    "🏆 **Sakila Database Exploratory Data Analysis**"
-)
-
-st.write(
-    "*SQL | DuckDB | Pandas | Evidence*"
-)
-
-st.write(
-    """
-    - Explored and analyzed the Sakila dataset using SQL to identify
-      trends, patterns and key insights.
-
-    - Prepared clean, structured datasets for dashboards and reporting.
+st.html(
+    f"""
+    <main class="aira-projects">
+        <h1>Data Engineering Projects</h1>
+        <p>Each card links to an article describing the project and what I learned.</p>
+        <p>
+            <a class="aira-projects-journal" href="{blog_url}" target="_blank"
+               rel="noopener noreferrer">
+                Visit the Data Engineering Journal ↗
+            </a>
+        </p>
+        <div class="aira-projects-grid">
+            {projects_html}
+        </div>
+    </main>
     """
 )
