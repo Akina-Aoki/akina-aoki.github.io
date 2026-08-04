@@ -49,7 +49,7 @@ capstone_projects_url = escape(
 st.html(
     f"""
     <main class="aira-projects">
-        <h1>Projects &amp; Writing</h1>
+        <h1>Projects &amp; Blogs</h1>
         <p>
             This page brings together my writing and Data Engineering coursework.
         </p>
