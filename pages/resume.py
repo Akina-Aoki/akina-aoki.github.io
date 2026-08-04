@@ -8,6 +8,7 @@ import streamlit as st
 # =========================================================
 # Project Paths & Assets
 # =========================================================
+from content.profile import MAIN_BLOG_URL
 from content.resume import WORK_HISTORY
 from utils.constants import (
     PROFILE_IMAGE,
@@ -70,8 +71,10 @@ contact_html = dedent(
 ).strip()
 
 
+main_blog_url = escape(MAIN_BLOG_URL, quote=True)
+
 header_html = dedent(
-    """
+    f"""
 
     <h1 class="resume-name">Aira Franco</h1>
 
@@ -174,7 +177,7 @@ header_html = dedent(
 
         <a
             class="link-card blog-card"
-            href="https://hashnode.com/@Aira"
+            href="{main_blog_url}"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open Aira's projects blog"

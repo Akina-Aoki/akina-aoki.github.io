@@ -3,6 +3,7 @@ from html import escape
 
 import streamlit as st
 
+from content.profile import MAIN_BLOG_URL
 from utils.constants import PROFILE_IMAGE, ROADMAP_IMAGE, STYLES_PATH
 from utils.helpers import image_to_data_uri, load_css
 
@@ -12,7 +13,6 @@ from utils.helpers import image_to_data_uri, load_css
 # =========================================================
 
 GITHUB_URL = "https://github.com/Akina-Aoki"
-BLOG_URL = "https://hashnode.com/@Aira"
 LINKEDIN_URL = "https://www.linkedin.com/in/aira-franco0965/"
 
 
@@ -88,7 +88,7 @@ links_html = "".join(
         create_link_button(
             label="Data Engineering Blog",
             icon="✍️",
-            url=BLOG_URL,
+            url=MAIN_BLOG_URL,
         ),
         create_link_button(
             label="LinkedIn",

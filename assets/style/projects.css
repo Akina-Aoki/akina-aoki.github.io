@@ -5,15 +5,45 @@
     color: #172033;
 }
 
-.aira-projects .aira-projects-journal {
+.aira-projects .aira-main-blog {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid #cbd3df;
+    border-radius: 0.75rem;
+    background: #ffffff;
+}
+
+.aira-projects .aira-main-blog-label {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.aira-projects .aira-main-blog-link,
+.aira-projects .aira-capstone-projects-link {
     color: #2857a4;
     font-weight: 600;
 }
 
-.aira-projects .aira-projects-journal:focus-visible {
+.aira-projects .aira-main-blog-link:focus-visible,
+.aira-projects .aira-capstone-projects-link:focus-visible {
     border-radius: 0.2rem;
     outline: 3px solid #2857a4;
     outline-offset: 3px;
+}
+
+.aira-projects .aira-capstone-projects {
+    margin-top: 2.5rem;
+}
+
+.aira-projects .aira-capstone-projects-header {
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid #d7dde7;
+}
+
+.aira-projects .aira-capstone-projects-header h2 {
+    margin: 0 0 0.5rem;
+    color: #172033;
+    font-size: 1.6rem;
 }
 
 .aira-projects .aira-projects-grid {
