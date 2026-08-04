@@ -77,10 +77,11 @@
 
 .aira-home .aira-profile-image-frame {
     min-width: 0;
-    padding: clamp(0.45rem, 1vw, 0.75rem);
-    border: 1px solid color-mix(in srgb, var(--home-light-blue) 55%, transparent);
-    border-radius: clamp(1.15rem, 2.5vw, 2rem);
-    background: var(--home-slate-blue);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .aira-home .aira-profile-image {
