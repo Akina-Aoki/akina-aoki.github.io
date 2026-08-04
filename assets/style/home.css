@@ -77,11 +77,10 @@
 
 .aira-home .aira-profile-image-frame {
     min-width: 0;
-    padding: 0;
-    border: 0;
+    padding: clamp(0.45rem, 1vw, 0.75rem);
+    border: 1px solid color-mix(in srgb, var(--home-light-blue) 55%, transparent);
     border-radius: clamp(1.15rem, 2.5vw, 2rem);
-    background: transparent;
-    box-shadow: none;
+    background: var(--home-slate-blue);
 }
 
 .aira-home .aira-profile-image {
@@ -503,6 +502,7 @@
         grid-template-columns: clamp(3rem, 14vw, 3.4rem) minmax(0, 1fr);
         gap: clamp(0.7rem, 3vw, 0.9rem);
     }
+}
 
     .aira-home .aira-stack-milestone {
         width: clamp(2.85rem, 13vw, 3.25rem);
