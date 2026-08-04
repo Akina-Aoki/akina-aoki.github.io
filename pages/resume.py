@@ -350,7 +350,6 @@ else:
 # =========================================================
 # Work History Roadmap
 # =========================================================
-
 def build_work_history_card(job, index):
     side = "left" if index % 2 == 0 else "right"
 

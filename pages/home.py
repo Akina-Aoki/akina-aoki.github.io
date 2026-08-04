@@ -162,26 +162,43 @@ st.html(
                     </h1>
 
                     <p class="aira-profile-role">
-                        Curious and resilient. 
-                        I know what it means to be afraid, 
-                        but I possess the bravery to push through it, 
-                        take calculated risks, and start over when it counts.
+                        Curious and resilient.
+                        \n
+
+                    </p>
+
+                    <p class="aira-profile-role">
+                        I know what it means to be afraid and lost, 
+                        but I possess the bravery to push through challenges, 
+                        take calculated risks, be patient and start over when it counts.
+                        \n
                     </p>
 
                     <p class="aira-profile-summary">
                         Growing up between the Philippines and Japan, and later
-                        building a new life in Sweden, taught me how to adapt,
+                        building a new life in Sweden, this huge life moves taught me how to adapt,
                         rebuild connections, learn new languages, and keep
                         moving forward even when the path is uncertain.
+                        \n\n
+                    </p>
+
+                    <p class="aira-profile-role">
+                    \n
                     </p>
 
                     <p class="aira-profile-summary">
                         Today, I am an aspiring data engineer and a mother of
-                        two pursuing my long-held dream of working in tech.
+                        two. I'm pursuing my long-held dream of working in tech, especially in data.
+                        \n\n
                         What defines me is not that every step has been easy,
                         but that I continue to show up. I am willing to begin
                         as a beginner, ask questions, learn from setbacks, and
                         put in the work required to improve.
+                        \n\n
+                    </p>
+
+                    <p class="aira-profile-role">
+                    \n
                     </p>
 
                     <p class="aira-profile-summary">
@@ -189,6 +206,11 @@ st.html(
                         reliable data foundations for analytics and AI. I bring
                         resilience, curiosity, attention to detail, and a
                         genuine interest in people to every challenge I take on.
+                    </p>
+
+                    
+                    <p class="aira-profile-role">
+                    \n
                     </p>
 
                     <div class="aira-profile-location">
