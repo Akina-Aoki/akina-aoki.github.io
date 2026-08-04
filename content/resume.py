@@ -37,6 +37,34 @@ VOLUNTEER_EXPERIENCE = (
 )
 
 
+LANGUAGES = (
+    {
+        "language": "English",
+        "level": "Native or bilingual proficiency",
+        "credential": None,
+        "proficiency_type": "native_bilingual",
+    },
+    {
+        "language": "Filipino",
+        "level": "Native or bilingual proficiency",
+        "credential": None,
+        "proficiency_type": "native_bilingual",
+    },
+    {
+        "language": "Japanese",
+        "level": "Native or bilingual proficiency",
+        "credential": None,
+        "proficiency_type": "native_bilingual",
+    },
+    {
+        "language": "Swedish",
+        "level": "Limited working proficiency",
+        "credential": "SVAS 2 certified",
+        "proficiency_type": "limited_working",
+    },
+)
+
+
 WORK_HISTORY = (
     {
         "period": "2020 – Present",
