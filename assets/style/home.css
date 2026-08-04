@@ -502,6 +502,7 @@
         grid-template-columns: clamp(3rem, 14vw, 3.4rem) minmax(0, 1fr);
         gap: clamp(0.7rem, 3vw, 0.9rem);
     }
+}
 
     .aira-home .aira-stack-milestone {
         width: clamp(2.85rem, 13vw, 3.25rem);
