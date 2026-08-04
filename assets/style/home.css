@@ -174,65 +174,230 @@
     margin-bottom: 0;
 }
 
-/* Shared visual showcase cards */
-.aira-home .aira-visual-card {
-    position: relative;
-    min-width: 0;
-    padding: clamp(1rem, 2.5vw, 2rem);
-    border: 1px solid color-mix(in srgb, var(--aira-navy) 30%, transparent);
+/* Native data sections */
+.aira-home .aira-competency-roadmap,
+.aira-home .aira-tech-stack {
+    padding: clamp(1.35rem, 3.5vw, 3.25rem);
+    border: 1px solid color-mix(in srgb, var(--aira-navy) 26%, transparent);
     border-radius: clamp(1.4rem, 3vw, 2.25rem);
+    box-shadow: 0 0.8rem 2rem color-mix(in srgb, var(--aira-navy) 14%, transparent);
+}
+
+.aira-home .aira-competency-roadmap {
     background: var(--aira-blue);
-    box-shadow: 0 0.8rem 2rem color-mix(in srgb, var(--aira-navy) 15%, transparent);
     color: var(--aira-sand);
 }
 
-.aira-home .aira-tech-stack-card {
-    background: var(--aira-purple);
-}
-
-.aira-home .aira-visual-viewport {
-    width: 100%;
-    min-width: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    border: 1px solid color-mix(in srgb, var(--aira-navy) 24%, transparent);
-    border-radius: clamp(0.9rem, 2vw, 1.5rem);
-    background: var(--aira-sand);
-    scrollbar-color: var(--aira-magenta) var(--aira-gray);
-    scrollbar-width: thin;
-    -webkit-overflow-scrolling: touch;
-}
-
-.aira-home .aira-visual-viewport:focus-visible {
-    outline: 3px solid var(--aira-sand);
-    outline-offset: 4px;
-}
-
-.aira-home .aira-visual-image {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: inherit;
-}
-
-.aira-home .aira-mobile-hint {
-    display: none;
-    margin: 0.85rem 0 0;
+.aira-home .aira-tech-stack {
+    background: var(--aira-navy);
     color: var(--aira-sand);
-    font-size: 0.86rem;
-    font-weight: 650;
+}
+
+.aira-home .aira-native-section-copy {
+    max-width: 54rem;
+    margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
     text-align: center;
 }
 
-.aira-home .aira-file-warning {
-    padding: clamp(1.25rem, 3vw, 2rem);
-    border: 1px solid var(--aira-navy);
+.aira-home .aira-native-section-copy h2 {
+    margin: 0 0 0.8rem;
+    color: var(--aira-sand);
+    font-size: clamp(2rem, 4vw, 3.65rem);
+    font-weight: 850;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+}
+
+.aira-home .aira-native-section-copy p {
+    margin: 0;
+    color: color-mix(in srgb, var(--aira-sand) 84%, transparent);
+    font-size: clamp(1rem, 1.3vw, 1.14rem);
+    line-height: 1.7;
+}
+
+.aira-home .aira-timeline,
+.aira-home .aira-stack-list,
+.aira-home .aira-tech-chip-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.aira-home .aira-timeline {
+    position: relative;
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.aira-home .aira-timeline::before {
+    position: absolute;
+    top: 0.65rem;
+    bottom: 0.65rem;
+    left: 50%;
+    width: 0.22rem;
+    border-radius: 999px;
+    background: var(--aira-magenta);
+    content: "";
+    transform: translateX(-50%);
+}
+
+.aira-home .aira-timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(3rem, 6vw, 4.25rem) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(0.8rem, 2vw, 1.35rem);
+    min-width: 0;
+}
+
+.aira-home .aira-timeline-marker {
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: clamp(2.8rem, 5vw, 3.7rem);
+    height: clamp(2.8rem, 5vw, 3.7rem);
+    margin: 0 auto;
+    border: 0.22rem solid var(--aira-sand);
+    border-radius: 50%;
+    background: var(--aira-magenta);
+    color: var(--aira-sand);
+    font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+    font-weight: 850;
+}
+
+.aira-home .aira-competency-stage {
+    min-width: 0;
+    padding: clamp(1rem, 2.2vw, 1.45rem);
+    border: 1px solid color-mix(in srgb, var(--aira-sand) 34%, transparent);
     border-radius: 1.25rem;
-    background: var(--aira-gray);
+    background: var(--aira-sand);
     color: var(--aira-navy);
-    font-size: 1rem;
-    line-height: 1.6;
+    box-shadow: 0 0.7rem 1.5rem color-mix(in srgb, var(--aira-navy) 18%, transparent);
+}
+
+.aira-home .aira-timeline-item:nth-child(odd) .aira-competency-stage {
+    grid-column: 1;
+}
+
+.aira-home .aira-timeline-item:nth-child(even) .aira-competency-stage {
+    grid-column: 3;
+}
+
+.aira-home .aira-timeline-marker {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.aira-home .aira-stage-eyebrow {
+    margin: 0 0 0.35rem;
+    color: var(--aira-magenta);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.aira-home .aira-competency-stage h3,
+.aira-home .aira-stack-heading h3 {
+    margin: 0;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 850;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+}
+
+.aira-home .aira-competency-stage ul {
+    margin: 0.85rem 0 0;
+    padding-left: 1.2rem;
+    line-height: 1.55;
+}
+
+.aira-home .aira-competency-stage li + li {
+    margin-top: 0.45rem;
+}
+
+.aira-home .aira-stack-list {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.aira-home .aira-stack-layer {
+    display: flex;
+    justify-content: center;
+}
+
+.aira-home .aira-stack-layer::after {
+    display: block;
+    width: 0.18rem;
+    height: 0.85rem;
+    margin: auto 0 auto 0.75rem;
+    border-radius: 999px;
+    background: var(--aira-magenta);
+    content: "";
+}
+
+.aira-home .aira-stack-layer:first-child::after {
+    background: var(--aira-sand);
+}
+
+.aira-home .aira-stack-card {
+    width: min(100%, 46%);
+    min-width: 0;
+    padding: clamp(1rem, 2.2vw, 1.45rem);
+    border: 1px solid color-mix(in srgb, var(--aira-sand) 32%, transparent);
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--aira-blue) 76%, var(--aira-navy));
+    color: var(--aira-sand);
+    box-shadow: 0 0.7rem 1.5rem color-mix(in srgb, black 22%, transparent);
+}
+
+
+.aira-home .aira-stack-layer:nth-child(2) .aira-stack-card { width: min(100%, 53%); }
+.aira-home .aira-stack-layer:nth-child(3) .aira-stack-card { width: min(100%, 60%); }
+.aira-home .aira-stack-layer:nth-child(4) .aira-stack-card { width: min(100%, 67%); }
+.aira-home .aira-stack-layer:nth-child(5) .aira-stack-card { width: min(100%, 74%); }
+.aira-home .aira-stack-layer:nth-child(6) .aira-stack-card { width: min(100%, 81%); }
+.aira-home .aira-stack-layer:nth-child(7) .aira-stack-card { width: min(100%, 88%); }
+
+.aira-home .aira-stack-heading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.aira-home .aira-stack-level {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    background: var(--aira-sand);
+    color: var(--aira-navy);
+    font-weight: 850;
+}
+
+.aira-home .aira-tech-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.aira-home .aira-tech-chip {
+    max-width: 100%;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid color-mix(in srgb, var(--aira-sand) 34%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--aira-purple) 64%, transparent);
+    color: var(--aira-sand);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
 @media (max-width: 1000px) {
@@ -264,7 +429,8 @@
 
     .aira-home .aira-profile-card,
     .aira-home .aira-introduction-card,
-    .aira-home .aira-visual-card {
+    .aira-home .aira-competency-roadmap,
+    .aira-home .aira-tech-stack {
         border-radius: 1.35rem;
     }
 
@@ -272,17 +438,54 @@
         font-size: clamp(2.2rem, 12vw, 3.25rem);
     }
 
-    .aira-home .aira-visual-image {
-        width: 780px;
-        max-width: none;
+    .aira-home .aira-timeline::before {
+        left: 1.35rem;
     }
 
-    .aira-home .aira-tech-stack-card .aira-visual-image {
-        width: 680px;
+    .aira-home .aira-timeline-item {
+        grid-template-columns: 2.7rem minmax(0, 1fr);
+        gap: 0.75rem;
     }
 
-    .aira-home .aira-mobile-hint {
+    .aira-home .aira-timeline-marker {
+        grid-column: 1;
+        width: 2.7rem;
+        height: 2.7rem;
+        font-size: 1.15rem;
+    }
+
+    .aira-home .aira-timeline-item:nth-child(odd) .aira-competency-stage,
+    .aira-home .aira-timeline-item:nth-child(even) .aira-competency-stage {
+        grid-column: 2;
+    }
+
+    .aira-home .aira-stack-layer {
         display: block;
+    }
+
+    .aira-home .aira-stack-layer::after {
+        width: 0.18rem;
+        height: 0.85rem;
+        margin: 0.45rem auto 0;
+    }
+
+    .aira-home .aira-stack-card,
+    .aira-home .aira-stack-layer:nth-child(2) .aira-stack-card,
+    .aira-home .aira-stack-layer:nth-child(3) .aira-stack-card,
+    .aira-home .aira-stack-layer:nth-child(4) .aira-stack-card,
+    .aira-home .aira-stack-layer:nth-child(5) .aira-stack-card,
+    .aira-home .aira-stack-layer:nth-child(6) .aira-stack-card,
+    .aira-home .aira-stack-layer:nth-child(7) .aira-stack-card {
+        width: 100%;
+    }
+
+    .aira-home .aira-stack-heading {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .aira-home .aira-tech-chip-list {
+        justify-content: flex-start;
     }
 }
 

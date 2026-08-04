@@ -1,57 +1,56 @@
+from collections.abc import Mapping
 from html import escape
-from pathlib import Path
 
 import streamlit as st
 
-from utils.constants import (
-    PROFILE_IMAGE,
-    ROADMAP_IMAGE,
-    STYLES_PATH,
-    TECH_STACK_IMAGE,
-)
+from content.home import COMPETENCY_STAGES, TECH_STACK_LAYERS
+from utils.constants import PROFILE_IMAGE, STYLES_PATH
 from utils.helpers import image_to_data_uri, load_css
 
 
-def build_visual_card(
-    image_path: Path,
-    alt_text: str,
-    modifier_class: str,
-    mobile_hint: str | None = None,
-) -> str:
-    """Build a Home visual showcase card, including its missing-file state."""
+def render_competency_stage(stage: Mapping[str, object]) -> str:
+    """Render one competency-map stage as accessible timeline HTML."""
 
-    safe_alt_text = escape(alt_text, quote=True)
-    safe_modifier_class = escape(modifier_class, quote=True)
-
-    if image_path.exists():
-        image_uri = escape(image_to_data_uri(image_path), quote=True)
-        visual_html = f"""
-            <div class="aira-visual-viewport" tabindex="0">
-                <img
-                    class="aira-visual-image"
-                    src="{image_uri}"
-                    alt="{safe_alt_text}"
-                >
-            </div>
-        """
-    else:
-        safe_filename = escape(image_path.name)
-        visual_html = f"""
-            <div class="aira-file-warning" role="status" aria-live="polite">
-                This visual could not be found. Add
-                <strong>{safe_filename}</strong> inside the assets folder.
-            </div>
-        """
-
-    hint_html = ""
-    if mobile_hint and image_path.exists():
-        hint_html = f'<p class="aira-mobile-hint">{escape(mobile_hint)}</p>'
+    number = int(stage["number"])
+    title = escape(str(stage["title"]))
+    skills = "".join(
+        f"<li>{escape(str(skill))}</li>" for skill in stage["skills"]
+    )
 
     return f"""
-        <section class="aira-layout-boundary aira-visual-card {safe_modifier_class}">
-            {visual_html}
-            {hint_html}
-        </section>
+        <li class="aira-timeline-item">
+            <div class="aira-timeline-marker" aria-hidden="true">{number}</div>
+            <article class="aira-competency-stage">
+                <p class="aira-stage-eyebrow">Stage {number}</p>
+                <h3>{title}</h3>
+                <ul>{skills}</ul>
+            </article>
+        </li>
+    """
+
+
+def render_stack_layer(layer: Mapping[str, object]) -> str:
+    """Render one tech-stack pyramid layer as accessible HTML."""
+
+    level = int(layer["level"])
+    title = escape(str(layer["title"]))
+    technologies = "".join(
+        f'<li class="aira-tech-chip">{escape(str(technology))}</li>'
+        for technology in layer["technologies"]
+    )
+
+    return f"""
+        <li class="aira-stack-layer">
+            <article class="aira-stack-card">
+                <div class="aira-stack-heading">
+                    <span class="aira-stack-level">Level {level}</span>
+                    <h3>{title}</h3>
+                </div>
+                <ul class="aira-tech-chip-list" aria-label="Technologies for {title}">
+                    {technologies}
+                </ul>
+            </article>
+        </li>
     """
 
 
@@ -65,20 +64,10 @@ if not PROFILE_IMAGE.exists():
 
 
 profile_image_uri = image_to_data_uri(PROFILE_IMAGE)
-
-roadmap_html = build_visual_card(
-    image_path=ROADMAP_IMAGE,
-    alt_text="Aira Franco's data engineering competency map",
-    modifier_class="aira-competency-card",
-    mobile_hint="Swipe horizontally to explore the full map.",
+competency_timeline_html = "".join(
+    render_competency_stage(stage) for stage in COMPETENCY_STAGES
 )
-
-tech_stack_html = build_visual_card(
-    image_path=TECH_STACK_IMAGE,
-    alt_text="Aira Franco Data Engineering Tech Stack Pyramid",
-    modifier_class="aira-tech-stack-card",
-    mobile_hint="Swipe horizontally to explore the full pyramid.",
-)
+tech_stack_html = "".join(render_stack_layer(layer) for layer in TECH_STACK_LAYERS)
 
 load_css(
     STYLES_PATH / "theme.css",
@@ -171,8 +160,32 @@ st.html(
             </p>
         </section>
 
-        {roadmap_html}
-        {tech_stack_html}
+        <section class="aira-layout-boundary aira-competency-roadmap" aria-labelledby="competency-map-heading">
+            <div class="aira-native-section-copy">
+                <h2 id="competency-map-heading">Aira’s Data Engineering Competency Map</h2>
+                <p>
+                    This roadmap presents the foundations, practices, and systems
+                    developed during Aira’s data-engineering studies and projects.
+                </p>
+            </div>
+            <ol class="aira-timeline">
+                {competency_timeline_html}
+            </ol>
+        </section>
+
+        <section class="aira-layout-boundary aira-tech-stack" aria-labelledby="tech-stack-heading">
+            <div class="aira-native-section-copy">
+                <h2 id="tech-stack-heading">Data Engineering Tech Stack</h2>
+                <p>
+                    This stack moves through the layers used to build reliable
+                    end-to-end data systems, from delivery experiences down to
+                    core foundations.
+                </p>
+            </div>
+            <ol class="aira-stack-list" aria-label="Data engineering tech stack layers">
+                {tech_stack_html}
+            </ol>
+        </section>
     </main>
     """
 )
