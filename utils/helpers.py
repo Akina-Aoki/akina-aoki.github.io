@@ -20,8 +20,8 @@ def read_text_file(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def load_css(path: Path) -> None:
-    """Load a CSS file and inject it into the current Streamlit page."""
+def load_css(*paths: Path) -> None:
+    """Load CSS files in order and inject them into the Streamlit page."""
 
-    css = read_text_file(path)
+    css = "\n".join(read_text_file(path) for path in paths)
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
