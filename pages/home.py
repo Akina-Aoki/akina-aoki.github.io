@@ -19,9 +19,8 @@ def render_competency_stage(stage: Mapping[str, object]) -> str:
 
     return f"""
         <li class="aira-timeline-item">
-            <div class="aira-timeline-marker" aria-hidden="true">{number}</div>
+            <div class="aira-timeline-marker">{number}</div>
             <article class="aira-competency-stage">
-                <p class="aira-stage-eyebrow">Stage {number}</p>
                 <h3>{title}</h3>
                 <ul>{skills}</ul>
             </article>
