@@ -123,29 +123,9 @@ COMPETENCY_STAGES = (
 
 TECH_STACK_LAYERS = (
     _immutable_record(
-        level=7,
-        title="Delivery",
-        technologies=("Streamlit", "Power BI", "FastAPI", "Databricks Dashboards"),
-    ),
-    _immutable_record(
-        level=6,
-        title="Orchestration & Reliability",
-        technologies=("Airflow", "Docker", "Terraform", "pytest", "GitHub Actions"),
-    ),
-    _immutable_record(
-        level=5,
-        title="Processing & Transformation",
-        technologies=("Pandas", "Spark/PySpark", "Databricks", "dbt Core", "Medallion Architecture"),
-    ),
-    _immutable_record(
-        level=4,
-        title="Ingestion & Integration",
-        technologies=("ETL/ELT", "REST APIs", "Kafka", "Azure Data Factory"),
-    ),
-    _immutable_record(
-        level=3,
-        title="Platform & Storage",
-        technologies=("S3", "PostgreSQL", "TimescaleDB", "DuckDB", "Snowflake", "Delta Lake"),
+        level=1,
+        title="Core Foundations",
+        technologies=("Python", "SQL", "OOP", "Git/GitHub", "Bash"),
     ),
     _immutable_record(
         level=2,
@@ -153,8 +133,28 @@ TECH_STACK_LAYERS = (
         technologies=("RDBMS", "3NF", "Dimensional Modeling", "Star Schema"),
     ),
     _immutable_record(
-        level=1,
-        title="Core Foundations",
-        technologies=("Python", "SQL", "OOP", "Git/GitHub", "Bash"),
+        level=3,
+        title="Platform & Storage",
+        technologies=("S3", "PostgreSQL", "TimescaleDB", "DuckDB", "Snowflake", "Delta Lake"),
+    ),
+    _immutable_record(
+        level=4,
+        title="Ingestion & Integration",
+        technologies=("ETL/ELT", "REST APIs", "Kafka", "Azure Data Factory"),
+    ),
+    _immutable_record(
+        level=5,
+        title="Processing & Transformation",
+        technologies=("Pandas", "Spark/PySpark", "Databricks", "dbt Core", "Medallion Architecture"),
+    ),
+    _immutable_record(
+        level=6,
+        title="Orchestration & Reliability",
+        technologies=("Airflow", "Docker", "Terraform", "pytest", "GitHub Actions"),
+    ),
+    _immutable_record(
+        level=7,
+        title="Delivery",
+        technologies=("Streamlit", "Power BI", "FastAPI", "Databricks Dashboards"),
     ),
 )
