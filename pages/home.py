@@ -14,16 +14,12 @@ from utils.helpers import image_to_data_uri, load_css
 
 def build_visual_card(
     image_path: Path,
-    title: str,
-    description: str,
     alt_text: str,
     modifier_class: str,
     mobile_hint: str | None = None,
 ) -> str:
     """Build a Home visual showcase card, including its missing-file state."""
 
-    safe_title = escape(title)
-    safe_description = escape(description)
     safe_alt_text = escape(alt_text, quote=True)
     safe_modifier_class = escape(modifier_class, quote=True)
 
@@ -53,11 +49,6 @@ def build_visual_card(
 
     return f"""
         <section class="aira-layout-boundary aira-visual-card {safe_modifier_class}">
-            <header class="aira-visual-header">
-                <p class="aira-section-kicker">Visual field guide</p>
-                <h2>{safe_title}</h2>
-                <p>{safe_description}</p>
-            </header>
             {visual_html}
             {hint_html}
         </section>
@@ -77,8 +68,6 @@ profile_image_uri = image_to_data_uri(PROFILE_IMAGE)
 
 roadmap_html = build_visual_card(
     image_path=ROADMAP_IMAGE,
-    title="Aira’s Data Engineering Competency Map",
-    description="The foundations, practices, and systems that shape my data engineering journey.",
     alt_text="Aira Franco's data engineering competency map",
     modifier_class="aira-competency-card",
     mobile_hint="Swipe horizontally to explore the full map.",
@@ -86,8 +75,6 @@ roadmap_html = build_visual_card(
 
 tech_stack_html = build_visual_card(
     image_path=TECH_STACK_IMAGE,
-    title="Data Engineering Tech Stack Pyramid",
-    description="A layered view of the technologies that support reliable, end-to-end data platforms.",
     alt_text="Aira Franco Data Engineering Tech Stack Pyramid",
     modifier_class="aira-tech-stack-card",
     mobile_hint="Swipe horizontally to explore the full pyramid.",
