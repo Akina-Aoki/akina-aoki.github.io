@@ -1,403 +1,325 @@
-/* -----------------------------------------------
-   Main Streamlit page spacing
------------------------------------------------- */
+/* Home-only Streamlit shell */
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background: var(--aira-sand);
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
 
 [data-testid="stMainBlockContainer"] {
     width: 100%;
-    max-width: 1200px;
-
-    padding-top: 2rem;
-    padding-right: 2.5rem;
-    padding-bottom: 5rem;
-    padding-left: 2.5rem;
+    max-width: none;
+    padding: 0;
 }
 
-
-/* -----------------------------------------------
-   Shared homepage layout
------------------------------------------------- */
-
+/* Shared content boundary and page rhythm */
 .aira-home {
-    width: min(100%, 1040px);
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-
-    box-sizing: border-box;
-}
-
-
-/* -----------------------------------------------
-   Profile area
------------------------------------------------- */
-
-.aira-hero {
-    width: min(100%, 540px);
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.aira-profile-card {
+    --aira-home-width: 1320px;
     width: 100%;
-    padding: 18px;
-    overflow: hidden;
+    min-width: 0;
     box-sizing: border-box;
-
-    background: #f8fafc;
-    border: 1px solid rgba(148, 163, 184, 0.30);
-    border-radius: 34px;
-
-    box-shadow:
-        0 25px 60px rgba(15, 23, 42, 0.14),
-        0 5px 16px rgba(15, 23, 42, 0.07);
+    padding: clamp(1.25rem, 3.5vw, 3.75rem);
+    overflow-x: clip;
+    background: var(--aira-sand);
+    color: var(--aira-navy);
 }
 
-.aira-profile-image {
+.aira-home,
+.aira-home * {
+    box-sizing: border-box;
+}
+
+.aira-home .aira-layout-boundary {
+    width: min(100%, var(--aira-home-width));
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.aira-home .aira-layout-boundary + .aira-layout-boundary {
+    margin-top: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+/* Editorial profile hero */
+.aira-home .aira-profile-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(19rem, 0.78fr) minmax(0, 1.35fr);
+    gap: clamp(2rem, 4vw, 4.5rem);
+    align-items: center;
+    min-width: 0;
+    padding: clamp(1.25rem, 2.8vw, 2.5rem);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--aira-navy) 28%, transparent);
+    border-radius: clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--aira-navy);
+    box-shadow: 0 1.25rem 3rem color-mix(in srgb, var(--aira-navy) 20%, transparent);
+    color: var(--aira-sand);
+}
+
+.aira-home .aira-profile-card::after {
+    position: absolute;
+    right: clamp(1rem, 3vw, 2.5rem);
+    top: 0;
+    width: clamp(4rem, 9vw, 8rem);
+    height: 0.45rem;
+    border-radius: 0 0 999px 999px;
+    background: var(--aira-magenta);
+    content: "";
+}
+
+.aira-home .aira-profile-image-frame {
+    min-width: 0;
+    padding: clamp(0.45rem, 1vw, 0.75rem);
+    border: 1px solid color-mix(in srgb, var(--aira-sand) 42%, transparent);
+    border-radius: clamp(1.15rem, 2.5vw, 2rem);
+    background: var(--aira-blue);
+}
+
+.aira-home .aira-profile-image {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
-
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: clamp(0.85rem, 2vw, 1.5rem);
     object-fit: cover;
     object-position: center 25%;
-
-    border-radius: 25px;
 }
 
-.aira-profile-content {
-    padding: 26px 12px 12px;
-    color: #111827;
+.aira-home .aira-profile-content {
+    min-width: 0;
+    padding: clamp(0.25rem, 1vw, 1rem) 0;
 }
 
-.aira-profile-name {
-    margin: 0 0 12px;
-
-    font-size: 2.2rem;
-    font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -0.04em;
+.aira-home .aira-profile-name {
+    margin: 0 0 1rem;
+    color: var(--aira-sand);
+    font-size: clamp(2.35rem, 5vw, 4.75rem);
+    font-weight: 850;
+    letter-spacing: -0.05em;
+    line-height: 0.98;
 }
 
-.aira-profile-role {
-    max-width: 470px;
-    margin: 0 0 15px;
-
-    color: #334155;
-    font-size: 1.08rem;
-    font-weight: 650;
-    line-height: 1.55;
-}
-
-.aira-profile-summary {
-    max-width: 470px;
-    margin: 0;
-
-    color: #526174;
-    font-size: 1rem;
+.aira-home .aira-profile-role,
+.aira-home .aira-profile-summary {
+    max-width: 48rem;
+    color: var(--aira-sand);
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
     line-height: 1.7;
 }
 
-.aira-profile-location {
+.aira-home .aira-profile-role {
+    margin: 0 0 1rem;
+    font-weight: 720;
+}
+
+.aira-home .aira-profile-summary {
+    margin: 0 0 1.15rem;
+}
+
+.aira-home .aira-profile-location {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-
-    margin-top: 20px;
-    padding: 9px 14px;
-
-    color: #075985;
-    background: #e0f2fe;
+    margin-top: 0.35rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--aira-sand) 42%, transparent);
     border-radius: 999px;
-
-    font-size: 0.88rem;
+    background: var(--aira-purple);
+    color: var(--aira-sand);
+    font-size: 0.92rem;
     font-weight: 750;
 }
 
-
-/* -----------------------------------------------
-   External link buttons
------------------------------------------------- */
-
-.aira-profile-links {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 11px;
+/* Personal philosophy */
+.aira-home .aira-introduction-card {
+    position: relative;
+    padding: clamp(1.5rem, 4vw, 3.75rem);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--aira-navy) 28%, transparent);
+    border-radius: clamp(1.4rem, 3vw, 2.25rem);
+    background: var(--aira-gray);
+    box-shadow: 0 0.8rem 2rem color-mix(in srgb, var(--aira-navy) 14%, transparent);
 }
 
-.aira-link-button {
-    width: 100%;
-    min-height: 48px;
-    padding: 0 17px;
-    box-sizing: border-box;
-
-    display: grid;
-    grid-template-columns: 28px 1fr auto;
-    align-items: center;
-    gap: 10px;
-
-    color: #172033;
-    background: #ffffff;
-    border: 1.5px solid #334155;
-    border-radius: 14px;
-
-    font-size: 0.98rem;
-    font-weight: 700;
-    text-decoration: none;
-
-    transition:
-        transform 160ms ease,
-        box-shadow 160ms ease,
-        background 160ms ease;
+.aira-home .aira-introduction-card::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.5rem;
+    background: var(--aira-purple);
+    content: "";
 }
 
-.aira-link-button:hover {
-    color: #172033;
-    background: #f8fafc;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 24px rgba(15, 23, 42, 0.10);
-}
-
-.aira-link-icon {
-    font-size: 1.05rem;
-    text-align: center;
-}
-
-.aira-link-label {
-    text-align: center;
-}
-
-.aira-link-arrow {
-    color: #64748b;
-    font-size: 0.82rem;
-    font-weight: 700;
-}
-
-.aira-link-disabled {
-    color: #7b8797;
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    cursor: not-allowed;
-}
-
-.aira-link-disabled:hover {
-    background: #f1f5f9;
-    transform: none;
-    box-shadow: none;
-}
-
-
-/* -----------------------------------------------
-   Introduction card
------------------------------------------------- */
-
-.aira-introduction-card {
-    width: 100%;
-    padding: 36px 40px;
-    box-sizing: border-box;
-
-    color: #303746;
-    background: #ffffff;
-    border: 1.5px solid #334155;
-    border-radius: 30px;
-
-    box-shadow:
-        0 12px 30px rgba(15, 23, 42, 0.06);
-}
-
-.aira-section-heading {
-    margin: 0 0 18px;
-
+.aira-home .aira-section-heading {
     display: flex;
+    gap: 0.75rem;
     align-items: center;
-    gap: 10px;
-
-    color: #2e3442;
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
+    margin: 0 0 1.25rem;
+    color: var(--aira-navy);
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    font-weight: 850;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
 }
 
-.aira-introduction-card p {
-    margin: 0 0 17px;
-
-    font-size: 1rem;
-    line-height: 1.78;
+.aira-home .aira-introduction-card p {
+    max-width: 72rem;
+    margin: 0 0 1rem;
+    color: var(--aira-navy);
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    line-height: 1.75;
 }
 
-.aira-introduction-card p:last-child {
+.aira-home .aira-introduction-card p:last-child {
     margin-bottom: 0;
 }
 
-
-/* -----------------------------------------------
-   Roadmap image card
------------------------------------------------- */
-
-.aira-roadmap-card {
-    width: min(100%, 940px);
-    margin: 0 auto;
-    padding: 18px;
-    box-sizing: border-box;
-
-    color: #303746;
-    background: #ffffff;
-    border: 1.5px solid #334155;
-    border-radius: 30px;
-
-    box-shadow:
-        0 12px 30px rgba(15, 23, 42, 0.07);
+/* Shared visual showcase cards */
+.aira-home .aira-visual-card {
+    position: relative;
+    min-width: 0;
+    padding: clamp(1rem, 2.5vw, 2rem);
+    border: 1px solid color-mix(in srgb, var(--aira-navy) 30%, transparent);
+    border-radius: clamp(1.4rem, 3vw, 2.25rem);
+    background: var(--aira-blue);
+    box-shadow: 0 0.8rem 2rem color-mix(in srgb, var(--aira-navy) 15%, transparent);
+    color: var(--aira-sand);
 }
 
-.aira-roadmap-viewport {
+.aira-home .aira-tech-stack-card {
+    background: var(--aira-purple);
+}
+
+.aira-home .aira-visual-header {
+    max-width: 58rem;
+    padding: clamp(0.25rem, 1vw, 0.75rem) clamp(0.25rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.6rem);
+}
+
+.aira-home .aira-section-kicker {
+    margin: 0 0 0.4rem;
+    color: var(--aira-sand);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.aira-home .aira-visual-header h2 {
+    margin: 0;
+    color: var(--aira-sand);
+    font-size: clamp(1.7rem, 3.5vw, 3rem);
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+}
+
+.aira-home .aira-visual-header > p:last-child {
+    margin: 0.65rem 0 0;
+    color: var(--aira-sand);
+    font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+    line-height: 1.6;
+}
+
+.aira-home .aira-visual-viewport {
     width: 100%;
+    min-width: 0;
     overflow-x: auto;
     overflow-y: hidden;
-
-    border-radius: 20px;
-
+    border: 1px solid color-mix(in srgb, var(--aira-navy) 24%, transparent);
+    border-radius: clamp(0.9rem, 2vw, 1.5rem);
+    background: var(--aira-sand);
+    scrollbar-color: var(--aira-magenta) var(--aira-gray);
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
 }
 
-.aira-roadmap-image {
-    display: block;
-    width: 100%;
-    height: auto;
-
-    border-radius: 20px;
+.aira-home .aira-visual-viewport:focus-visible {
+    outline: 3px solid var(--aira-sand);
+    outline-offset: 4px;
 }
 
-.aira-mobile-hint {
-    display: none;
-    margin: 13px 0 0;
+.aira-home .aira-visual-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: inherit;
+}
 
-    color: #64748b;
-    font-size: 0.82rem;
+.aira-home .aira-mobile-hint {
+    display: none;
+    margin: 0.85rem 0 0;
+    color: var(--aira-sand);
+    font-size: 0.86rem;
+    font-weight: 650;
     text-align: center;
 }
 
-.aira-file-warning {
-    padding: 22px;
-
-    color: #92400e;
-    background: #fff7ed;
-    border: 1px solid #fed7aa;
-    border-radius: 16px;
-
+.aira-home .aira-file-warning {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--aira-navy);
+    border-radius: 1.25rem;
+    background: var(--aira-gray);
+    color: var(--aira-navy);
+    font-size: 1rem;
     line-height: 1.6;
 }
 
-
-/* -----------------------------------------------
-   Tablet layout
------------------------------------------------- */
-
-@media (max-width: 900px) {
-
-    [data-testid="stMainBlockContainer"] {
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
+@media (max-width: 1000px) {
+    .aira-home .aira-profile-card {
+        grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+        gap: clamp(1.5rem, 3vw, 2.5rem);
     }
-
-    .aira-home {
-        gap: 26px;
-    }
-
-    .aira-introduction-card {
-        padding: 30px;
-    }
-
 }
 
+@media (max-width: 760px) {
+    .aira-home {
+        padding: clamp(1rem, 4vw, 1.5rem);
+    }
 
-/* -----------------------------------------------
-   Phone layout
------------------------------------------------- */
+    .aira-home .aira-profile-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .aira-home .aira-profile-image-frame {
+        width: min(100%, 31rem);
+        margin: 0 auto;
+    }
+}
 
 @media (max-width: 640px) {
-
-    [data-testid="stMainBlockContainer"] {
-        padding-top: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 3rem;
-        padding-left: 1rem;
+    .aira-home .aira-layout-boundary + .aira-layout-boundary {
+        margin-top: 1.25rem;
     }
 
-    .aira-home {
-        gap: 22px;
+    .aira-home .aira-profile-card,
+    .aira-home .aira-introduction-card,
+    .aira-home .aira-visual-card {
+        border-radius: 1.35rem;
     }
 
-    .aira-hero {
-        width: 100%;
+    .aira-home .aira-profile-name {
+        font-size: clamp(2.2rem, 12vw, 3.25rem);
     }
 
-    .aira-profile-card {
-        padding: 12px;
-        border-radius: 27px;
-    }
-
-    .aira-profile-image {
-        aspect-ratio: 4 / 5;
-        object-position: center top;
-        border-radius: 21px;
-    }
-
-    .aira-profile-content {
-        padding: 20px 9px 10px;
-    }
-
-    .aira-profile-name {
-        font-size: 1.75rem;
-    }
-
-    .aira-profile-role {
-        font-size: 1rem;
-    }
-
-    .aira-link-button {
-        min-height: 47px;
-        border-radius: 13px;
-    }
-
-    .aira-introduction-card {
-        padding: 24px 21px;
-        border-radius: 23px;
-    }
-
-    .aira-section-heading {
-        font-size: 1.55rem;
-    }
-
-    .aira-introduction-card p {
-        font-size: 0.96rem;
-        line-height: 1.72;
-    }
-
-    .aira-roadmap-card {
-        padding: 12px;
-        border-radius: 23px;
-    }
-
-    /*
-    The image remains large on mobile so the small text
-    inside the competency map stays readable.
-    */
-
-    .aira-roadmap-image {
-        width: 820px;
+    .aira-home .aira-visual-image {
+        width: 780px;
         max-width: none;
     }
 
-    .aira-mobile-hint {
-        display: block;
+    .aira-home .aira-tech-stack-card .aira-visual-image {
+        width: 680px;
     }
 
+    .aira-home .aira-mobile-hint {
+        display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aira-home *,
+    .aira-home *::before,
+    .aira-home *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }
