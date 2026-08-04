@@ -1,3 +1,42 @@
+VOLUNTEER_EXPERIENCE = (
+    {
+        "role": "Coordinator",
+        "organization": "Japan International Cooperation Agency (JICA)",
+        "cause": "Disaster and Humanitarian Relief",
+        "achievements": (
+            (
+                "Coordinated recurring fundraising drives in Sapporo to "
+                "collect essential goods for communities affected by natural "
+                "disasters across Southeast Asia, in partnership with "
+                "organizations such as the Red Cross and JICA."
+            ),
+            (
+                "Contributed to Tondeke NPO by repairing and preparing donated "
+                "wheelchairs for hospitals and care facilities in developing "
+                "Southeast Asian countries."
+            ),
+            (
+                "Participated in cultural-exchange programs as a performer, "
+                "host, and coordinator to promote diversity and global awareness."
+            ),
+            "Volunteered at city-organized events and festivals across Sapporo.",
+        ),
+    },
+    {
+        "role": "Coordinator",
+        "organization": "Fairtrade International",
+        "cause": "Economic Empowerment",
+        "achievements": (
+            (
+                "Coordinated Fair Trade activities at Hokkaido’s first "
+                "UNESCO-affiliated senior high school, supporting regional "
+                "economic-empowerment initiatives."
+            ),
+        ),
+    },
+)
+
+
 WORK_HISTORY = (
     {
         "period": "2020 – Present",

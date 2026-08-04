@@ -9,15 +9,14 @@ import streamlit as st
 # Project Paths & Assets
 # =========================================================
 from content.profile import MAIN_BLOG_URL
-from content.resume import WORK_HISTORY
+from content.resume import VOLUNTEER_EXPERIENCE, WORK_HISTORY
 from utils.constants import (
     PROFILE_IMAGE,
     RESUME_CANDIDATES,
     STYLES_PATH,
-    TECH_STACK_IMAGE,
 )
 
-from utils.helpers import image_to_data_uri, load_css
+from utils.helpers import load_css
 
 RESUME_FILE = next(
     (file for file in RESUME_CANDIDATES if file.exists()),
@@ -231,6 +230,7 @@ with profile_column:
             data=pdf_bytes,
             file_name="CV_Aira_Franco_en.pdf",
             mime="application/pdf",
+            width="stretch",
         )
     else:
         st.download_button(
@@ -242,6 +242,7 @@ with profile_column:
                 "Add CV_Aira_Franco_en.pdf or resume.pdf "
                 "to the assets folder."
             ),
+            width="stretch",
         )
 
 with content_column:
@@ -263,11 +264,11 @@ st.markdown(
 
 education_html = dedent(
     """
-    <div class="education-card">
+    <section class="education-card resume-content-section">
         <div class="education-card-header">
-            <span class="education-heading">
+            <h2 class="education-heading">
                 Education &amp; Profile
-            </span>
+            </h2>
         </div>
         <div class="education-body">
             <div class="education-entry">
@@ -315,7 +316,7 @@ education_html = dedent(
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     """
 ).strip()
 
@@ -325,29 +326,47 @@ st.markdown(
 )
 
 # =========================================================
-# Technical Skills — Tech Stack Pyramid
+# Volunteer Work
 # =========================================================
-if TECH_STACK_IMAGE.exists():
-    tech_stack_image_uri = image_to_data_uri(TECH_STACK_IMAGE)
+def build_volunteer_entry(volunteer):
+    achievements_html = "".join(
+        f"<li>{escape(achievement)}</li>"
+        for achievement in volunteer["achievements"]
+    )
 
-    tech_stack_html = f"""
-
-    <div class="tech-stack-card">
-        <img
-            class="tech-stack-image"
-            src="{tech_stack_image_uri}"
-            alt="Aira Franco Data Engineering Tech Stack Pyramid"
-        >
-    </div>
+    return f"""
+        <article class="volunteer-entry">
+            <header class="volunteer-entry-header">
+                <h3 class="volunteer-role">{escape(volunteer['role'])}</h3>
+                <p class="volunteer-organization">
+                    {escape(volunteer['organization'])}
+                </p>
+                <p class="volunteer-cause">{escape(volunteer['cause'])}</p>
+            </header>
+            <ul class="volunteer-achievements">
+                {achievements_html}
+            </ul>
+        </article>
     """
 
-    st.html(tech_stack_html)
 
-else:
-    st.warning(
-        "Tech-stack image not found. Add "
-        "`de_tech_stack_pyramid.png` to the assets folder."
-    )
+volunteer_entries_html = "".join(
+    build_volunteer_entry(volunteer)
+    for volunteer in VOLUNTEER_EXPERIENCE
+)
+
+volunteer_html = f"""
+<section class="volunteer-card resume-content-section" aria-labelledby="volunteer-heading">
+    <header class="volunteer-card-header">
+        <h2 id="volunteer-heading" class="volunteer-heading">Volunteer Work</h2>
+    </header>
+    <div class="volunteer-body">
+        {volunteer_entries_html}
+    </div>
+</section>
+"""
+
+st.html(volunteer_html)
 
 
 # =========================================================
@@ -437,7 +456,7 @@ work_history_cards = "".join(
 work_history_html = """
 
 <section
-    class="work-history-roadmap"
+    class="work-history-roadmap resume-content-section"
     aria-labelledby="work-history-heading"
 >
     <div class="wh-heading-area">
