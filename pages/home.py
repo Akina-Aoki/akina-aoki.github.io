@@ -29,7 +29,7 @@ def render_competency_stage(stage: Mapping[str, object]) -> str:
 
 
 def render_stack_layer(layer: Mapping[str, object]) -> str:
-    """Render one tech-stack pyramid layer as accessible HTML."""
+    """Render one tech-stack flow layer as accessible HTML."""
 
     level = int(layer["level"])
     title = escape(str(layer["title"]))
@@ -40,6 +40,7 @@ def render_stack_layer(layer: Mapping[str, object]) -> str:
 
     return f"""
         <li class="aira-stack-layer">
+            <div class="aira-stack-milestone" aria-label="Level {level:02d}">{level:02d}</div>
             <article class="aira-stack-card">
                 <div class="aira-stack-heading">
                     <span class="aira-stack-level">Level {level}</span>
@@ -161,7 +162,7 @@ st.html(
 
         <section class="aira-layout-boundary aira-competency-roadmap" aria-labelledby="competency-map-heading">
             <div class="aira-native-section-copy">
-                <h2 id="competency-map-heading">Aira’s Data Engineering Competency Map</h2>
+                <h2 id="competency-map-heading">Data Engineering Fundamentals I’ve Learned</h2>
                 <p>
                     This roadmap presents the foundations, practices, and systems
                     developed during Aira’s data-engineering studies and projects.
@@ -176,9 +177,9 @@ st.html(
             <div class="aira-native-section-copy">
                 <h2 id="tech-stack-heading">Data Engineering Tech Stack</h2>
                 <p>
-                    This stack moves through the layers used to build reliable
-                    end-to-end data systems, from delivery experiences down to
-                    core foundations.
+                    This stack begins with core foundations and progresses through
+                    the layers used to build reliable end-to-end data systems
+                    toward delivery experiences.
                 </p>
             </div>
             <ol class="aira-stack-list" aria-label="Data engineering tech stack layers">
