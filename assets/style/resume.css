@@ -7,6 +7,12 @@
     --resume-green: #64e6b3;
     --resume-border: rgba(100, 230, 179, 0.24);
     --resume-content-width: 1200px;
+    --resume-section-background: linear-gradient(145deg, var(--resume-panel), #071521);
+    --resume-section-border: var(--resume-border);
+    --resume-section-accent: var(--resume-green);
+    --resume-section-heading: var(--resume-white);
+    --resume-section-muted: var(--resume-muted);
+    --resume-section-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
     --youtube-coral: #f2573f;
     --linkedin-blue: #428eea;
     --blog-gold: #f6bd42;
@@ -188,8 +194,9 @@ div[data-testid="stDownloadButton"] button:hover {
 /* External link mosaic */
 .link-mosaic {
     display: grid;
-    grid-template-columns: 1.55fr 1fr;
-    gap: 0.85rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 0.75rem;
     margin-top: 2.3rem;
 }
 
@@ -198,9 +205,9 @@ div[data-testid="stDownloadButton"] button:hover {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    min-height: 132px;
-    padding: 1.25rem 1.4rem;
+    gap: 0.75rem;
+    min-height: 80px;
+    padding: 0.8rem 0.9rem;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 17px;
@@ -228,32 +235,33 @@ div[data-testid="stDownloadButton"] button:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 58px;
-    width: 58px;
-    height: 58px;
-    border-radius: 14px;
-    font-size: 1.4rem;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    font-size: 1.05rem;
     font-weight: 900;
 }
 
 .link-copy {
     display: block;
     min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .link-title {
     display: block;
     color: inherit;
-    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    font-size: clamp(1rem, 1.4vw, 1.16rem);
     font-weight: 800;
     line-height: 1.15;
 }
 
 .link-description {
     display: block;
-    margin-top: 0.35rem;
+    margin-top: 0.2rem;
     color: inherit;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     line-height: 1.3;
     opacity: 0.82;
 }
@@ -272,7 +280,7 @@ div[data-testid="stDownloadButton"] button:hover {
 .youtube-mark {
     color: var(--youtube-coral);
     background: #ffffff;
-    font-size: 1.45rem;
+    font-size: 1.08rem;
 }
 
 .youtube-card::before {
@@ -280,9 +288,9 @@ div[data-testid="stDownloadButton"] button:hover {
     position: absolute;
     top: 14px;
     left: 14px;
-    width: 58px;
-    height: 58px;
-    opacity: 0.3;
+    width: 42px;
+    height: 42px;
+    opacity: 0.18;
     background-image:
         radial-gradient(
             circle,
@@ -295,10 +303,10 @@ div[data-testid="stDownloadButton"] button:hover {
 .youtube-card::after {
     content: "";
     position: absolute;
-    right: -60px;
-    bottom: -85px;
-    width: 230px;
-    height: 230px;
+    right: -38px;
+    bottom: -50px;
+    width: 130px;
+    height: 130px;
     border: 1px solid rgba(255, 255, 255, 0.32);
     border-radius: 50%;
     box-shadow:
@@ -320,7 +328,7 @@ div[data-testid="stDownloadButton"] button:hover {
     color: var(--linkedin-blue);
     background: #ffffff;
     font-family: Arial, sans-serif;
-    font-size: 1.65rem;
+    font-size: 1.18rem;
 }
 
 .linkedin-card::after {
@@ -328,9 +336,9 @@ div[data-testid="stDownloadButton"] button:hover {
     position: absolute;
     right: 13px;
     top: 29px;
-    width: 54px;
-    height: 54px;
-    opacity: 0.25;
+    width: 38px;
+    height: 38px;
+    opacity: 0.16;
     background-image:
         radial-gradient(
             circle,
@@ -365,7 +373,7 @@ div[data-testid="stDownloadButton"] button:hover {
     top: 3px;
     color: rgba(174, 189, 202, 0.25);
     font-family: Consolas, monospace;
-    font-size: 4.2rem;
+    font-size: 2.6rem;
     font-weight: 800;
     letter-spacing: -0.35em;
     transform: rotate(-5deg);
@@ -376,9 +384,9 @@ div[data-testid="stDownloadButton"] button:hover {
     position: absolute;
     right: 20px;
     top: 34px;
-    width: 58px;
-    height: 58px;
-    opacity: 0.22;
+    width: 38px;
+    height: 38px;
+    opacity: 0.14;
     background-image:
         radial-gradient(
             circle,
@@ -407,15 +415,15 @@ div[data-testid="stDownloadButton"] button:hover {
 .blog-mark {
     color: #101820;
     background: rgba(255, 255, 255, 0.92);
-    font-size: 1.35rem;
+    font-size: 1.05rem;
 }
 
 .blog-card::before {
     content: "";
     position: absolute;
     inset: 0 auto 0 0;
-    width: 72px;
-    opacity: 0.24;
+    width: 42px;
+    opacity: 0.14;
     background-image:
         linear-gradient(
             rgba(65, 48, 8, 0.38) 1px,
@@ -470,14 +478,14 @@ hr {
     }
 
     .link-card {
-        min-height: 115px;
-        padding: 1rem;
+        min-height: 76px;
+        padding: 0.7rem;
     }
 
     .brand-mark {
-        flex-basis: 50px;
-        width: 50px;
-        height: 50px;
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -492,7 +500,7 @@ hr {
     }
 
     .link-mosaic {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-top: 1.8rem;
     }
 
@@ -507,15 +515,25 @@ hr {
 
 @media (max-width: 560px) {
     .link-mosaic {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
     }
 
     .link-card {
-        min-height: 105px;
+        min-height: 84px;
+        align-items: flex-start;
+        gap: 0.55rem;
     }
 
     .resume-name {
         font-size: 3rem !important;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .link-mosaic {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
@@ -532,19 +550,12 @@ hr {
 
 .education-card {
     position: relative;
-    width: 100%;
     overflow: hidden;
-    color: #101820;
-    background:
-        linear-gradient(
-            135deg,
-            #f7c44f 0%,
-            #ffc95a 55%,
-            #f4b93d 100%
-        );
-    border: 1px solid rgba(255, 224, 146, 0.65);
+    color: var(--resume-white);
+    background: var(--resume-section-background);
+    border: 1px solid var(--resume-section-border);
     border-radius: 20px;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--resume-section-shadow);
 }
 
 .resume-content-section {
@@ -558,25 +569,28 @@ hr {
 .volunteer-card {
     overflow: hidden;
     color: var(--resume-white);
-    background: linear-gradient(145deg, var(--resume-panel), #071521);
-    border: 1px solid var(--resume-border);
+    background: var(--resume-section-background);
+    border: 1px solid var(--resume-section-border);
     border-radius: 20px;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--resume-section-shadow);
 }
 
-.volunteer-card-header {
+.volunteer-card-header,
+.education-card-header {
     padding: 1.4rem 1.6rem;
-    border-bottom: 1px solid var(--resume-border);
+    border-bottom: 1px solid var(--resume-section-border);
 }
 
-.volunteer-heading {
+.volunteer-heading,
+.education-heading {
     margin: 0;
-    color: var(--resume-white) !important;
+    color: var(--resume-section-heading) !important;
     font-size: clamp(1.9rem, 3vw, 2.5rem);
     line-height: 1.1;
 }
 
-.volunteer-body {
+.volunteer-body,
+.education-body {
     padding: 0 1.6rem;
 }
 
@@ -594,7 +608,7 @@ hr {
 
 .volunteer-role {
     margin: 0;
-    color: var(--resume-green) !important;
+    color: var(--resume-section-accent) !important;
     font-size: 1.35rem;
 }
 
@@ -610,7 +624,7 @@ hr {
 }
 
 .volunteer-cause {
-    color: var(--resume-muted) !important;
+    color: var(--resume-section-muted) !important;
     font-size: 0.92rem;
 }
 
@@ -626,45 +640,12 @@ hr {
 }
 
 .volunteer-card a:focus-visible {
-    outline: 3px solid var(--resume-green);
+    outline: 3px solid var(--resume-section-accent);
     outline-offset: 3px;
-}
-
-.education-card::after {
-    content: "";
-    position: absolute;
-    top: -35px;
-    right: -35px;
-    width: 120px;
-    height: 120px;
-    border: 2px solid rgba(16, 24, 32, 0.14);
-    border-radius: 50%;
-    box-shadow:
-        0 0 0 13px rgba(16, 24, 32, 0.05),
-        0 0 0 26px rgba(16, 24, 32, 0.035);
-}
-
-.education-card-header {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    padding: 1.4rem 1.6rem;
-    border-bottom: 2px dashed rgba(16, 24, 32, 0.48);
-}
-
-.education-heading {
-    color: #101820 !important;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(1.9rem, 3vw, 2.5rem);
-    font-weight: 700;
-    line-height: 1.1;
 }
 
 .education-body {
     position: relative;
-    z-index: 2;
-    padding: 0 1.6rem;
 }
 
 .education-entry {
@@ -672,9 +653,9 @@ hr {
     grid-template-columns: 58px minmax(0, 1fr) auto;
     align-items: center;
     gap: 1.15rem;
-    min-height: 138px;
+    min-height: 128px;
     padding: 1.15rem 0;
-    border-bottom: 1px solid rgba(16, 24, 32, 0.28);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .education-entry:last-child {
@@ -687,13 +668,13 @@ hr {
     justify-content: center;
     width: 52px;
     height: 52px;
-    color: #f8fafc !important;
-    background: #0b1d2d;
+    color: var(--resume-bg) !important;
+    background: var(--resume-section-accent);
     border-radius: 14px;
     font-size: 0.9rem;
     font-weight: 800;
     letter-spacing: 0.04em;
-    box-shadow: 0 8px 18px rgba(6, 19, 33, 0.18);
+    box-shadow: 0 8px 18px rgba(100, 230, 179, 0.12);
 }
 
 .education-information {
@@ -703,7 +684,7 @@ hr {
 .education-program {
     display: block;
     margin-bottom: 0.4rem;
-    color: #101820 !important;
+    color: var(--resume-white) !important;
     font-size: 1.4rem;
     font-weight: 800;
     line-height: 1.25;
@@ -711,7 +692,7 @@ hr {
 
 .education-school {
     display: block;
-    color: #101820 !important;
+    color: var(--resume-white) !important;
     font-size: 1.08rem;
     font-weight: 700;
     line-height: 1.4;
@@ -720,7 +701,7 @@ hr {
 .education-location {
     display: block;
     margin-top: 0.2rem;
-    color: rgba(16, 24, 32, 0.74) !important;
+    color: var(--resume-section-muted) !important;
     font-size: 0.95rem;
     line-height: 1.35;
 }
@@ -733,31 +714,30 @@ hr {
     min-width: 190px;
 }
 
-.education-date {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.55rem 0.8rem;
-    color: #f8fafc !important;
-    background: #0b1d2d;
-    border-radius: 999px;
-    font-size: 0.86rem;
-    font-weight: 750;
-    white-space: nowrap;
-}
-
+.education-date,
 .education-type {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.42rem 0.7rem;
-    color: #101820 !important;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(16, 24, 32, 0.18);
     border-radius: 999px;
+    white-space: nowrap;
+}
+
+.education-date {
+    padding: 0.55rem 0.8rem;
+    color: var(--resume-bg) !important;
+    background: var(--resume-section-accent);
+    font-size: 0.86rem;
+    font-weight: 750;
+}
+
+.education-type {
+    padding: 0.42rem 0.7rem;
+    color: var(--resume-white) !important;
+    background: var(--resume-panel-hover);
+    border: 1px solid var(--resume-section-border);
     font-size: 0.82rem;
     font-weight: 800;
-    white-space: nowrap;
 }
 
 @media (max-width: 700px) {
@@ -847,17 +827,15 @@ hr {
    Work History colour palette
    ===================================================== */
 .work-history-roadmap {
-    --wh-background: #28254F;
-    --wh-card-gray: #506695;
-    --wh-card-blue: #5271C0;
-    --wh-card-navy: #283B60;
-    --wh-card-sky: #95B2F8;
-    --wh-card-lavender: #B5C0F3;
-
-    --wh-text-light: #F7F8FF;
-    --wh-text-dark: #28254F;
-    --wh-line: #95B2F8;
-    --wh-accent: #B5C0F3;
+    --wh-background: var(--resume-section-background);
+    --wh-card-base: var(--resume-panel);
+    --wh-card-alt: var(--resume-panel-hover);
+    --wh-card-accent: rgba(100, 230, 179, 0.14);
+    --wh-text-light: var(--resume-white);
+    --wh-text-dark: var(--resume-bg);
+    --wh-muted: var(--resume-muted);
+    --wh-line: var(--resume-section-border);
+    --wh-accent: var(--resume-section-accent);
 
     box-sizing: border-box;
     width: min(100%, var(--resume-content-width));
@@ -866,8 +844,9 @@ hr {
 
     color: var(--wh-text-light);
     background: var(--wh-background);
-    border: 1px solid rgba(149, 178, 248, 0.3);
-    border-radius: 30px;
+    border: 1px solid var(--resume-section-border);
+    border-radius: 20px;
+    box-shadow: var(--resume-section-shadow);
 
     font-family:
         Inter,
@@ -904,7 +883,7 @@ hr {
 
 .wh-instruction {
     margin: 0.85rem 0 0;
-    color: var(--wh-card-lavender) !important;
+    color: var(--wh-muted) !important;
     font-size: 0.95rem;
     font-weight: 650;
 }
@@ -922,14 +901,14 @@ hr {
     width: 46px;
     height: 4px;
     content: "";
-    background: var(--wh-card-blue);
+    background: var(--wh-accent);
     border-radius: 999px;
 }
 
 .wh-heading-decoration span {
     width: 9px;
     height: 9px;
-    background: var(--wh-card-sky);
+    background: var(--wh-card-accent);
     border-radius: 50%;
 }
 
@@ -954,7 +933,7 @@ hr {
     content: "";
     transform: translateX(-50%);
 
-    background: var(--wh-line);
+    background: linear-gradient(180deg, transparent, var(--wh-accent), transparent);
     border-radius: 999px;
 }
 
@@ -1003,8 +982,8 @@ hr {
     height: 34px;
     margin-top: 46px;
 
-    background: var(--wh-background);
-    border: 4px solid var(--wh-background);
+    background: var(--resume-panel);
+    border: 4px solid var(--resume-panel);
     border-radius: 50%;
     box-shadow: 0 0 0 2px var(--wh-line);
 }
@@ -1012,12 +991,12 @@ hr {
 .wh-milestone span {
     width: 13px;
     height: 13px;
-    background: var(--wh-card-blue);
+    background: var(--wh-accent);
     border-radius: 50%;
 }
 
 .wh-item:nth-child(even) .wh-milestone span {
-    background: var(--wh-card-lavender);
+    background: var(--wh-muted);
 }
 
 .wh-left .wh-card::after,
@@ -1047,10 +1026,10 @@ hr {
     min-width: 0;
     padding: 1.45rem;
 
-    border: 2px solid var(--wh-line);
+    border: 1px solid var(--wh-line);
     border-radius: 24px;
     box-shadow:
-        0 9px 0 rgba(149, 178, 248, 0.13),
+        0 10px 24px rgba(100, 230, 179, 0.08),
         0 20px 35px rgba(0, 0, 0, 0.22);
 
     transition:
@@ -1060,33 +1039,21 @@ hr {
 
 .wh-card[open] {
     box-shadow:
-        0 10px 0 rgba(149, 178, 248, 0.17),
+        0 12px 28px rgba(100, 230, 179, 0.12),
         0 24px 42px rgba(0, 0, 0, 0.32);
 }
 
-.wh-tone-gray {
+.wh-tone-gray,
+.wh-tone-blue,
+.wh-tone-cream {
     color: var(--wh-text-light);
-    background: var(--wh-card-gray);
+    background: var(--wh-card-base);
 }
 
-.wh-tone-pink {
-    color: var(--wh-text-dark);
-    background: var(--wh-card-lavender);
-}
-
-.wh-tone-blue {
-    color: var(--wh-text-light);
-    background: var(--wh-card-blue);
-}
-
+.wh-tone-pink,
 .wh-tone-olive {
     color: var(--wh-text-light);
-    background: var(--wh-card-navy);
-}
-
-.wh-tone-cream {
-    color: var(--wh-text-dark);
-    background: var(--wh-card-sky);
+    background: var(--wh-card-alt);
 }
 
 /* =====================================================
@@ -1113,7 +1080,7 @@ hr {
 }
 
 .wh-summary:focus-visible {
-    outline: 3px solid var(--wh-card-lavender);
+    outline: 3px solid var(--wh-accent);
     outline-offset: 7px;
 }
 
@@ -1140,8 +1107,8 @@ hr {
     height: 74px;
 
     color: var(--wh-text-dark);
-    background: var(--wh-card-lavender);
-    border: 2px dashed var(--wh-card-navy);
+    background: var(--wh-accent);
+    border: 2px solid var(--wh-line);
     border-radius: 50%;
 
     font-size: 1.8rem;
@@ -1161,7 +1128,7 @@ hr {
     padding: 0.3rem 0.85rem;
 
     color: var(--wh-text-light);
-    background: var(--wh-card-navy);
+    background: var(--wh-card-alt);
     border-radius: 999px;
 
     font-size: 0.84rem;
@@ -1174,7 +1141,7 @@ hr {
 .wh-tone-blue .wh-period,
 .wh-tone-olive .wh-period {
     color: var(--wh-text-dark);
-    background: var(--wh-card-sky);
+    background: var(--wh-accent);
 }
 
 .wh-role {
@@ -1207,13 +1174,13 @@ hr {
 }
 
 .wh-location span {
-    color: var(--wh-card-lavender);
+    color: var(--wh-muted);
     font-size: 0.67rem;
 }
 
 .wh-tone-pink .wh-location span,
 .wh-tone-cream .wh-location span {
-    color: var(--wh-card-blue);
+    color: var(--wh-accent);
 }
 
 /* =====================================================
@@ -1235,7 +1202,7 @@ hr {
     padding: 0.6rem 1rem;
 
     color: var(--wh-text-light);
-    background: var(--wh-card-navy);
+    background: var(--wh-card-alt);
     border: 1.5px solid var(--wh-line);
     border-radius: 12px;
 
@@ -1279,7 +1246,7 @@ hr {
 .wh-tone-blue .wh-toggle,
 .wh-tone-olive .wh-toggle {
     color: var(--wh-text-dark);
-    background: var(--wh-card-sky);
+    background: var(--wh-accent);
 }
 
 /* =====================================================
@@ -1351,8 +1318,8 @@ hr {
     padding: 0.42rem 0.8rem;
 
     color: var(--wh-text-dark);
-    background: var(--wh-card-lavender);
-    border: 1.5px solid var(--wh-card-navy);
+    background: var(--wh-accent);
+    border: 1.5px solid var(--wh-line);
     border-radius: 999px;
 
     font-size: 0.78rem;
@@ -1366,7 +1333,7 @@ hr {
 @media (hover: hover) {
     .wh-summary:hover .wh-toggle {
         color: var(--wh-text-dark);
-        background: var(--wh-card-sky);
+        background: var(--wh-accent);
         transform: translateY(-2px);
     }
 }

@@ -326,50 +326,6 @@ st.markdown(
 )
 
 # =========================================================
-# Volunteer Work
-# =========================================================
-def build_volunteer_entry(volunteer):
-    achievements_html = "".join(
-        f"<li>{escape(achievement)}</li>"
-        for achievement in volunteer["achievements"]
-    )
-
-    return f"""
-        <article class="volunteer-entry">
-            <header class="volunteer-entry-header">
-                <h3 class="volunteer-role">{escape(volunteer['role'])}</h3>
-                <p class="volunteer-organization">
-                    {escape(volunteer['organization'])}
-                </p>
-                <p class="volunteer-cause">{escape(volunteer['cause'])}</p>
-            </header>
-            <ul class="volunteer-achievements">
-                {achievements_html}
-            </ul>
-        </article>
-    """
-
-
-volunteer_entries_html = "".join(
-    build_volunteer_entry(volunteer)
-    for volunteer in VOLUNTEER_EXPERIENCE
-)
-
-volunteer_html = f"""
-<section class="volunteer-card resume-content-section" aria-labelledby="volunteer-heading">
-    <header class="volunteer-card-header">
-        <h2 id="volunteer-heading" class="volunteer-heading">Volunteer Work</h2>
-    </header>
-    <div class="volunteer-body">
-        {volunteer_entries_html}
-    </div>
-</section>
-"""
-
-st.html(volunteer_html)
-
-
-# =========================================================
 # Work History Roadmap
 # =========================================================
 
@@ -480,6 +436,50 @@ work_history_html = """
 """
 
 st.html(work_history_html)
+
+
+# =========================================================
+# Volunteer Work
+# =========================================================
+def build_volunteer_entry(volunteer):
+    achievements_html = "".join(
+        f"<li>{escape(achievement)}</li>"
+        for achievement in volunteer["achievements"]
+    )
+
+    return f"""
+        <article class="volunteer-entry">
+            <header class="volunteer-entry-header">
+                <h3 class="volunteer-role">{escape(volunteer['role'])}</h3>
+                <p class="volunteer-organization">
+                    {escape(volunteer['organization'])}
+                </p>
+                <p class="volunteer-cause">{escape(volunteer['cause'])}</p>
+            </header>
+            <ul class="volunteer-achievements">
+                {achievements_html}
+            </ul>
+        </article>
+    """
+
+
+volunteer_entries_html = "".join(
+    build_volunteer_entry(volunteer)
+    for volunteer in VOLUNTEER_EXPERIENCE
+)
+
+volunteer_html = f"""
+<section class="volunteer-card resume-content-section" aria-labelledby="volunteer-heading">
+    <header class="volunteer-card-header">
+        <h2 id="volunteer-heading" class="volunteer-heading">Volunteer Work</h2>
+    </header>
+    <div class="volunteer-body">
+        {volunteer_entries_html}
+    </div>
+</section>
+"""
+
+st.html(volunteer_html)
 
 
 # =========================================================
