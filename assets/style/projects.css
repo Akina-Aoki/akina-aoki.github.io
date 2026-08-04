@@ -9,6 +9,12 @@
     padding: 0;
 }
 
+@media (max-width: 700px) {
+    [data-testid="stMainBlockContainer"] {
+        padding-top: calc(4.75rem + env(safe-area-inset-top, 0px));
+    }
+}
+
 .aira-projects {
     box-sizing: border-box;
     width: 100%;
