@@ -190,35 +190,6 @@
     background: var(--aira-purple);
 }
 
-.aira-home .aira-visual-header {
-    max-width: 58rem;
-    padding: clamp(0.25rem, 1vw, 0.75rem) clamp(0.25rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.6rem);
-}
-
-.aira-home .aira-section-kicker {
-    margin: 0 0 0.4rem;
-    color: var(--aira-sand);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-}
-
-.aira-home .aira-visual-header h2 {
-    margin: 0;
-    color: var(--aira-sand);
-    font-size: clamp(1.7rem, 3.5vw, 3rem);
-    letter-spacing: -0.035em;
-    line-height: 1.08;
-}
-
-.aira-home .aira-visual-header > p:last-child {
-    margin: 0.65rem 0 0;
-    color: var(--aira-sand);
-    font-size: clamp(0.98rem, 1.2vw, 1.08rem);
-    line-height: 1.6;
-}
-
 .aira-home .aira-visual-viewport {
     width: 100%;
     min-width: 0;
