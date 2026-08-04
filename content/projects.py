@@ -20,7 +20,6 @@ PROJECTS = (
             "https://dataengineeringlearning.hashnode.dev/"
             "data-modelling-project-vocational-school-database"
         ),
-        "icon": "🗄️",
     },
     {
         "title": "Sakila Data Analysis with DuckDB",
@@ -39,7 +38,6 @@ PROJECTS = (
             "https://dataengineeringlearning.hashnode.dev/"
             "sql-project-data-analysis-with-duckdb"
         ),
-        "icon": "📊",
     },
     {
         "title": "Apache Kafka with Docker",
@@ -58,7 +56,6 @@ PROJECTS = (
             "https://dataengineeringlearning.hashnode.dev/"
             "what-i-learned-about-apache-kafka-by-running-it-in-docker"
         ),
-        "icon": "📨",
     },
     {
         "title": "Retail Inventory Data Platform",
@@ -79,7 +76,6 @@ PROJECTS = (
             "building-a-batch-processed-real-time-retail-inventory-data-"
             "platform-using-etl-fastapi-kafka-postgresql-supabase"
         ),
-        "icon": "🛍️",
     },
     {
         "title": "Validated ETL Pipeline",
@@ -99,7 +95,6 @@ PROJECTS = (
             "https://dataengineeringlearning.hashnode.dev/"
             "robust-etl-pipeline-learning-log"
         ),
-        "icon": "✅",
     },
     {
         "title": "Netflix Semantic Model",
@@ -118,7 +113,6 @@ PROJECTS = (
             "https://dataengineeringlearning.hashnode.dev/"
             "why-semantic-models-need-strong-data-engineering-principles"
         ),
-        "icon": "⭐",
     },
     {
         "title": "Netflix Analytics Dashboard",
@@ -137,7 +131,6 @@ PROJECTS = (
             "https://dataengineeringlearning.hashnode.dev/"
             "netflix-analytics-dashboard-with-streamlit"
         ),
-        "icon": "🎬",
     },
     {
         "title": "Marathos Atlas",
@@ -157,6 +150,5 @@ PROJECTS = (
             "marathos-atlas-building-a-data-platform-in-databricks-to-learn-"
             "medallion-architecture"
         ),
-        "icon": "🏔️",
     },
 )

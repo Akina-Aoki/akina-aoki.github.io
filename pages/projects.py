@@ -13,7 +13,6 @@ def build_project_card(project: dict[str, object]) -> str:
     title = escape(str(project["title"]))
     category = escape(str(project["category"]))
     summary = escape(str(project["summary"]))
-    icon = escape(str(project["icon"]))
     url = escape(str(project["url"]), quote=True)
     accessible_label = escape(f"Read the {project['title']} project article", quote=True)
     technology_labels = "".join(
@@ -24,16 +23,18 @@ def build_project_card(project: dict[str, object]) -> str:
     return (
         f'<a class="aira-project-card" href="{url}" target="_blank" '
         f'rel="noopener noreferrer" aria-label="{accessible_label}">'
-        f'<span class="aira-project-icon" aria-hidden="true">{icon}</span>'
-        f'<span class="aira-project-category">{category}</span>'
-        f'<h2 class="aira-project-title">{title}</h2>'
+        f'<h2 class="aira-project-category">{category}</h2>'
+        f'<h3 class="aira-project-title">{title}</h3>'
         f'<p class="aira-project-summary">{summary}</p>'
         f'<span class="aira-project-technologies">{technology_labels}</span>'
         "</a>"
     )
 
 
-load_css(STYLES_PATH / "projects.css")
+load_css(
+    STYLES_PATH / "theme.css",
+    STYLES_PATH / "projects.css",
+)
 
 projects_html = "".join(
     build_project_card(project)
