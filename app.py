@@ -11,25 +11,28 @@ home_page = st.Page(
     "pages/home.py",
     title="Home",
     icon="🏠",
+    url_path="",
     default=True,
 )
 
-resume_page = st.Page(
-    "pages/resume.py",
-    title="Resume",
-    icon="📄",
+skills_and_tech_stacks_page = st.Page(
+    "pages/skills_and_tech_stacks.py",
+    title="Skills & Tech Stacks",
+    icon="🧰",
+    url_path="skills-and-tech-stacks",
 )
 
 projects_page = st.Page(
     "pages/projects.py",
     title="Projects",
     icon="🛠️",
+    url_path="projects",
 )
 
 selected_page = st.navigation(
     [
         home_page,
-        resume_page,
+        skills_and_tech_stacks_page,
         projects_page,
     ],
     position="sidebar",
