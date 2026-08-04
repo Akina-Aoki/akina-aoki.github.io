@@ -1,160 +1,230 @@
-"""Data-driven Home page content."""
-
-from types import MappingProxyType
-
-
-def _immutable_record(**values: object) -> MappingProxyType:
-    return MappingProxyType(values)
-
-
-COMPETENCY_STAGES = (
-    _immutable_record(
-        number=1,
-        title="Programming Foundations",
-        skills=(
-            "Build applications in Python",
-            "Write clean, reusable code",
-            "Manage packages and virtual environments",
-            "Use testing for reliable results",
+VOLUNTEER_EXPERIENCE = (
+    {
+        "role": "Coordinator",
+        "organization": "Japan International Cooperation Agency (JICA)",
+        "cause": "Disaster and Humanitarian Relief",
+        "achievements": (
+            (
+                "Coordinated recurring fundraising drives in Sapporo to "
+                "collect essential goods for communities affected by natural "
+                "disasters across Southeast Asia, in partnership with "
+                "organizations such as the Red Cross and JICA."
+            ),
+            (
+                "Contributed to Tondeke NPO by repairing and preparing donated "
+                "wheelchairs for hospitals and care facilities in developing "
+                "Southeast Asian countries."
+            ),
+            (
+                "Participated in cultural-exchange programs as a performer, "
+                "host, and coordinator to promote diversity and global awareness."
+            ),
+            "Volunteered at city-organized events and festivals across Sapporo.",
         ),
-    ),
-    _immutable_record(
-        number=2,
-        title="Query Languages",
-        skills=(
-            "Use SQL to explore and transform data",
-            "Write joins, aggregations, and window functions",
-            "Check data quality and accuracy",
-            "Support reporting and analysis needs",
+    },
+    {
+        "role": "Coordinator",
+        "organization": "Fairtrade International",
+        "cause": "Economic Empowerment",
+        "achievements": (
+            (
+                "Coordinated Fair Trade activities at Hokkaido’s first "
+                "UNESCO-affiliated senior high school, supporting regional "
+                "economic-empowerment initiatives."
+            ),
         ),
-    ),
-    _immutable_record(
-        number=3,
-        title="Data Modeling",
-        skills=(
-            "Design data structures for different needs",
-            "Use normalization and 3NF principles",
-            "Work with primary and foreign keys",
-            "Understand OLTP vs OLAP use cases",
-        ),
-    ),
-    _immutable_record(
-        number=4,
-        title="Databases & Storage",
-        skills=(
-            "Work with PostgreSQL and DuckDB",
-            "Design tables, schemas, and data types",
-            "Apply basic data governance practices",
-            "Understand when different storage types are useful",
-        ),
-    ),
-    _immutable_record(
-        number=5,
-        title="Data Integration",
-        skills=(
-            "Build ETL and ELT workflows",
-            "Ingest and transform batch data",
-            "Improve data quality and traceability",
-            "Create repeatable pipelines",
-        ),
-    ),
-    _immutable_record(
-        number=6,
-        title="Data Warehousing",
-        skills=(
-            "Understand the warehouse lifecycle",
-            "Use fact and dimension thinking",
-            "Prepare data for reporting",
-            "Apply basic dimensional modeling",
-        ),
-    ),
-    _immutable_record(
-        number=7,
-        title="Data Platform Development",
-        skills=(
-            "Use Docker containerization",
-            "Build APIs with FastAPI",
-            "Work with Supabase and PostgreSQL",
-            "Support platform setup and management",
-        ),
-    ),
-    _immutable_record(
-        number=8,
-        title="Exploratory Data Analysis",
-        skills=(
-            "Explore trends and patterns in data",
-            "Turn data into useful insights",
-            "Create clear reports",
-            "Build interactive dashboards",
-        ),
-    ),
-    _immutable_record(
-        number=9,
-        title="Data Visualization",
-        skills=(
-            "Build dashboards in Power BI",
-            "Use star schema for reporting",
-            "Collaborate with UX designers on layout and usability",
-            "Create Streamlit apps for interactive data experiences",
-        ),
-    ),
-    _immutable_record(
-        number=10,
-        title="Big Data & Cloud Foundations",
-        skills=(
-            "Learn Databricks for large-scale data work",
-            "Use PySpark for distributed data processing",
-            "Build cloud knowledge with Azure",
-            "Understand modern big data platforms",
-        ),
-    ),
-    _immutable_record(
-        number=11,
-        title="Engineering Practices",
-        skills=(
-            "Use Git for version control",
-            "Write clear technical documentation",
-            "Turn business needs into working solutions",
-            "Focus on maintainable and scalable work",
-        ),
-    ),
+    },
 )
 
 
-TECH_STACK_LAYERS = (
-    _immutable_record(
-        level=1,
-        title="Core Foundations",
-        technologies=("Python", "SQL", "OOP", "Git/GitHub", "Bash"),
-    ),
-    _immutable_record(
-        level=2,
-        title="Data Modeling",
-        technologies=("RDBMS", "3NF", "Dimensional Modeling", "Star Schema"),
-    ),
-    _immutable_record(
-        level=3,
-        title="Platform & Storage",
-        technologies=("S3", "PostgreSQL", "TimescaleDB", "DuckDB", "Snowflake", "Delta Lake"),
-    ),
-    _immutable_record(
-        level=4,
-        title="Ingestion & Integration",
-        technologies=("ETL/ELT", "REST APIs", "Kafka", "Azure Data Factory"),
-    ),
-    _immutable_record(
-        level=5,
-        title="Processing & Transformation",
-        technologies=("Pandas", "Spark/PySpark", "Databricks", "dbt Core", "Medallion Architecture"),
-    ),
-    _immutable_record(
-        level=6,
-        title="Orchestration & Reliability",
-        technologies=("Airflow", "Docker", "Terraform", "pytest", "GitHub Actions"),
-    ),
-    _immutable_record(
-        level=7,
-        title="Delivery",
-        technologies=("Streamlit", "Power BI", "FastAPI", "Databricks Dashboards"),
-    ),
+LANGUAGES = (
+    {
+        "language": "English",
+        "level": "Native or bilingual proficiency",
+        "credential": None,
+        "proficiency_type": "native_bilingual",
+    },
+    {
+        "language": "Filipino",
+        "level": "Native or bilingual proficiency",
+        "credential": None,
+        "proficiency_type": "native_bilingual",
+    },
+    {
+        "language": "Japanese",
+        "level": "Native or bilingual proficiency",
+        "credential": None,
+        "proficiency_type": "native_bilingual",
+    },
+    {
+        "language": "Swedish",
+        "level": "Limited working proficiency",
+        "credential": "SVAS 2 certified",
+        "proficiency_type": "limited_working",
+    },
+)
+
+
+WORK_HISTORY = (
+    {
+        "period": "2020 – Present",
+        "role": "Operations Assistant",
+        "company": "Inditex (Zara)",
+        "location": "Stockholm, Sweden",
+        "icon": "👕",
+        "tone": "gray",
+        "achievements": (
+            (
+                "Optimized inventory and logistics workflows across "
+                "departments, improving product distribution efficiency "
+                "under strict operational timelines."
+            ),
+            (
+                "Developed a strong understanding of stock movement, "
+                "demand patterns and operational bottlenecks, directly "
+                "informing my transition into data engineering."
+            ),
+        ),
+        "skills": (
+            "Inventory Management",
+            "Retail Operations",
+            "Logistics",
+            "Time Management",
+        ),
+    },
+    {
+        "period": "2019",
+        "role": "Hotel Receptionist",
+        "company": "The Stay Sapporo Nagomi",
+        "location": "Sapporo, Japan",
+        "icon": "🛎️",
+        "tone": "pink",
+        "achievements": (
+            (
+                "Handled front-office operations, guest relations and "
+                "daily payment reconciliation to support efficient service."
+            ),
+            (
+                "Managed hotel inventories for company supplies. "
+                "Inspected housekeeping's work after cleaning to maintain "
+                "hotel cleanliness standards."
+            ),
+        ),
+        "skills": (
+            "Administration",
+            "Hospitality Service",
+            "Booking Systems",
+        ),
+    },
+    {
+        "period": "2018 – 2019",
+        "role": "Production Assistant",
+        "company": "Krispy Kreme Doughnuts Japan",
+        "location": "Chitose, Japan",
+        "icon": "🍩",
+        "tone": "blue",
+        "achievements": (
+            (
+                "Assisted with launching food-production workflows for "
+                "the company's first store in the region."
+            ),
+            (
+                "Supported preparation and worked as part of the "
+                "production crew for the food products."
+            ),
+        ),
+        "skills": (
+            "Food Production",
+            "Operational Coordination",
+        ),
+    },
+    {
+        "period": "2016 – 2018",
+        "role": "Bartender",
+        "company": "TK6 International Sports Bar",
+        "location": "Sapporo, Japan",
+        "icon": "🍸",
+        "tone": "olive",
+        "achievements": (
+            (
+                "Managed daily bar operations, staff coordination, "
+                "daily cash reconciliation and cost controls while "
+                "studying at university."
+            ),
+        ),
+        "skills": (
+            "Restaurant Operations",
+            "Team Coordination",
+            "Interpersonal Communication",
+        ),
+    },
+    {
+        "period": "2016",
+        "role": "Front Desk Assistant",
+        "company": "Hilton",
+        "location": "Niseko, Japan",
+        "icon": "🛎️",
+        "tone": "gray",
+        "achievements": (
+            (
+                "Completed coursework and an internship involving "
+                "reception duties and administrative coordination."
+            ),
+            (
+                "Helped maintain efficient internal processes and "
+                "smooth day-to-day operations."
+            ),
+        ),
+        "skills": (
+            "Hotel Operations",
+            "Administration",
+        ),
+    },
+    {
+        "period": "2015 – 2019",
+        "role": "English Language Teacher",
+        "company": "Self-employed",
+        "location": "Sapporo, Japan",
+        "icon": "🎓",
+        "tone": "cream",
+        "achievements": (
+            (
+                "Founded and operated an English tutoring business "
+                "alongside university studies."
+            ),
+            (
+                "Delivered one-on-one and group lessons for children "
+                "and adults, focusing on conversation, grammar and "
+                "university exam readiness."
+            ),
+        ),
+        "skills": (
+            "Language Teaching",
+            "Lesson Planning",
+            "Language Level Assessment",
+        ),
+    },
+    {
+        "period": "2015 – 2019",
+        "role": "Translator — Japanese ↔ English",
+        "company": "Self-employed",
+        "location": "Sapporo, Japan",
+        "icon": "文",
+        "tone": "pink",
+        "achievements": (
+            (
+                "Translated business and general documents between "
+                "Japanese and English with precision and cultural "
+                "sensitivity."
+            ),
+            (
+                "Managed timelines, priorities and delivery while "
+                "working directly with clients to clarify requirements."
+            ),
+        ),
+        "skills": (
+            "Translation",
+            "Client Communication",
+        ),
+    },
 )
