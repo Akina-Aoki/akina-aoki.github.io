@@ -1,4 +1,6 @@
-PROJECTS_BLOG_URL = "https://dataengineeringlearning.hashnode.dev/"
+CAPSTONE_PROJECTS_URL = (
+    "https://dataengineeringlearning.hashnode.dev/"
+)
 
 PROJECTS = (
     {
