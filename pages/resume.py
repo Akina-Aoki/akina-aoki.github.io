@@ -9,7 +9,7 @@ import streamlit as st
 # Project Paths & Assets
 # =========================================================
 from content.profile import MAIN_BLOG_URL
-from content.resume import VOLUNTEER_EXPERIENCE, WORK_HISTORY
+from content.resume import LANGUAGES, VOLUNTEER_EXPERIENCE, WORK_HISTORY
 from utils.constants import (
     PROFILE_IMAGE,
     RESUME_CANDIDATES,
@@ -480,3 +480,55 @@ work_history_html = """
 """
 
 st.html(work_history_html)
+
+
+# =========================================================
+# Languages
+# =========================================================
+
+def build_language_node(language):
+    language_name = escape(language["language"])
+    proficiency_level = escape(language["level"])
+    proficiency_type = escape(language["proficiency_type"], quote=True)
+    credential = language.get("credential")
+    credential_html = (
+        f'<span class="language-credential">{escape(credential)}</span>'
+        if credential
+        else ""
+    )
+
+    return f"""
+        <li class="language-node language-node-{proficiency_type}">
+            <span class="language-name">{language_name}</span>
+            <span class="language-level">{proficiency_level}</span>
+            {credential_html}
+        </li>
+    """
+
+
+language_nodes_html = "".join(
+    build_language_node(language)
+    for language in LANGUAGES
+)
+
+languages_html = f"""
+<section
+    class="languages-card resume-content-section"
+    aria-labelledby="languages-heading"
+>
+    <header class="languages-card-header">
+        <h2 id="languages-heading" class="languages-heading">Languages</h2>
+        <p class="languages-introduction">
+            A multilingual profile connecting communication, culture, and growth.
+        </p>
+    </header>
+    <div class="language-network-wrap">
+        <div class="language-connectors" aria-hidden="true"></div>
+        <ul class="language-network">
+            {language_nodes_html}
+        </ul>
+    </div>
+</section>
+"""
+
+st.html(languages_html)
