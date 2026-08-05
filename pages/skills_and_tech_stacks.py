@@ -16,13 +16,28 @@ def render_competency_stage(stage: Mapping[str, object]) -> str:
     skills = "".join(
         f"<li>{escape(str(skill))}</li>" for skill in stage["skills"]
     )
+    upcoming_items = stage.get("upcoming")
+    upcoming_html = ""
+
+    if upcoming_items:
+        upcoming_title = escape(str(stage.get("upcoming_title", "Upcoming")))
+        upcoming_skills = "".join(
+            f"<li>{escape(str(skill))}</li>" for skill in upcoming_items
+        )
+        upcoming_html = f"""
+                <div class="aira-upcoming-coursework">
+                    <h4>{upcoming_title}</h4>
+                    <ul>{upcoming_skills}</ul>
+                </div>
+        """
 
     return f"""
         <li class="aira-timeline-item">
-            <div class="aira-timeline-marker">{number}</div>
+            <div class="aira-timeline-marker">{number:02d}</div>
             <article class="aira-competency-stage">
                 <h3>{title}</h3>
                 <ul>{skills}</ul>
+                {upcoming_html}
             </article>
         </li>
     """
@@ -136,8 +151,9 @@ st.html(
             <div class="aira-native-section-copy">
                 <h2 id="competency-map-heading">Data Engineering Fundamentals I’ve Learned</h2>
                 <p>
-                    This roadmap presents the foundations, practices, and systems
-                    developed during Aira’s data-engineering studies and projects.
+                    This roadmap maps the engineering concepts, practices, and
+                    workflows I’ve developed through my Data Engineering studies
+                    and projects.
                 </p>
             </div>
             <ol class="aira-timeline">

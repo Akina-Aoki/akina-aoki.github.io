@@ -261,6 +261,7 @@
 }
 
 .aira-home .aira-competency-stage {
+    width: 100%;
     min-width: 0;
     max-width: 46rem;
     padding: clamp(1.15rem, 2.4vw, 1.8rem);
@@ -302,6 +303,27 @@
 
 .aira-home .aira-competency-stage li + li {
     margin-top: 0.6rem;
+}
+
+.aira-home .aira-upcoming-coursework {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--home-slate-blue) 70%, transparent);
+    border-radius: 0.8rem;
+    background: color-mix(in srgb, var(--home-deep-navy) 18%, transparent);
+}
+
+.aira-home .aira-upcoming-coursework h4 {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    font-weight: 850;
+    letter-spacing: 0.03em;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+.aira-home .aira-upcoming-coursework ul {
+    margin-top: 0.65rem;
 }
 
 /* Responsive Data Engineering Tech Stack infographic */
@@ -380,6 +402,10 @@
         grid-row: 1;
         justify-self: stretch;
         max-width: none;
+    }
+
+    .aira-home .aira-competency-stage {
+        padding: clamp(1rem, 3.5vw, 1.35rem);
     }
 }
 
