@@ -85,11 +85,65 @@ div[data-testid="stImage"] img {
 }
 
 .work-authorization {
-    display: block;
-    margin-top: 1.1rem;
-    color: var(--resume-muted);
-    font-size: 0.98rem;
-    font-style: italic;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    width: 100%;
+    margin-top: 1.35rem;
+    padding: 0.95rem 1rem;
+    box-sizing: border-box;
+    color: var(--resume-white);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11, 29, 45, 0.95),
+            rgba(7, 21, 33, 0.95)
+        );
+    border: 1px solid var(--resume-border);
+    border-radius: 16px;
+    box-shadow:
+        0 16px 34px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(100, 230, 179, 0.04),
+        0 0 28px rgba(100, 230, 179, 0.08);
+}
+
+.work-authorization-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    color: var(--resume-green);
+    background: rgba(100, 230, 179, 0.11);
+    border: 1px solid rgba(100, 230, 179, 0.42);
+    border-radius: 999px;
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.work-authorization-copy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.45rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.work-authorization-title {
+    color: var(--resume-white);
+    font-size: clamp(1rem, 1.35vw, 1.14rem);
+    font-weight: 850;
+    line-height: 1.35;
+}
+
+.work-authorization-detail {
+    color: var(--resume-green);
+    font-size: clamp(0.96rem, 1.15vw, 1.04rem);
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 /* Contact panel below profile */
@@ -514,6 +568,18 @@ hr {
 }
 
 @media (max-width: 560px) {
+    .work-authorization {
+        gap: 0.7rem;
+        padding: 0.85rem 0.9rem;
+    }
+
+    .work-authorization-mark {
+        flex-basis: 31px;
+        width: 31px;
+        height: 31px;
+        font-size: 0.98rem;
+    }
+
     .link-mosaic {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.65rem;

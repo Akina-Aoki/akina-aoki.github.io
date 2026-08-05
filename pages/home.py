@@ -114,10 +114,24 @@ header_html = dedent(
         that support better decisions and make analytics and AI systems more reliable.
         </p>
 
-        <span class="work-authorization">
-            Permanent work authorization in Sweden —
-            no sponsorship required.
-        </span>
+        <aside
+            class="work-authorization"
+            aria-label="Work authorization status"
+        >
+            <span class="work-authorization-mark" aria-hidden="true">
+                ✓
+            </span>
+
+            <span class="work-authorization-copy">
+                <strong class="work-authorization-title">
+                    Permanent work authorization in Sweden
+                </strong>
+
+                <span class="work-authorization-detail">
+                    No sponsorship required.
+                </span>
+            </span>
+        </aside>
     </div>
 
     <div class="link-mosaic">
