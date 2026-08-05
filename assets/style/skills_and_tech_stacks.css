@@ -215,9 +215,7 @@
     line-height: 1.7;
 }
 
-.aira-home .aira-timeline,
-.aira-home .aira-stack-list,
-.aira-home .aira-tech-chip-list {
+.aira-home .aira-timeline {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -288,8 +286,7 @@
     color: var(--home-deep-navy);
 }
 
-.aira-home .aira-competency-stage h3,
-.aira-home .aira-stack-heading h3 {
+.aira-home .aira-competency-stage h3 {
     margin: 0;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: 850;
@@ -308,100 +305,56 @@
     margin-top: 0.6rem;
 }
 
-.aira-home .aira-stack-list {
-    position: relative;
-    display: grid;
-    gap: clamp(1rem, 2.3vw, 1.5rem);
-    width: min(100%, 58rem);
-    margin-inline: auto;
-}
-
-.aira-home .aira-stack-list::before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: clamp(1.55rem, 4vw, 1.85rem);
-    width: 0.2rem;
-    border-radius: 999px;
-    background: var(--home-slate-blue);
-    content: "";
-    pointer-events: none;
-}
-
-.aira-home .aira-stack-layer {
-    position: relative;
-    display: grid;
-    grid-template-columns: clamp(3.25rem, 8vw, 3.9rem) minmax(0, 1fr);
-    gap: clamp(0.85rem, 2vw, 1.25rem);
-    align-items: stretch;
+/* Responsive Data Engineering Tech Stack infographic */
+.st-key-tech_stack_infographic {
+    width: min(100%, var(--aira-home-width, 1320px));
     min-width: 0;
+    margin: clamp(1.5rem, 3vw, 2.75rem) auto 0;
+    padding: clamp(1.35rem, 3.5vw, 3.25rem);
+    overflow-x: clip;
+    border: 1px solid var(--home-slate-blue);
+    border-radius: clamp(1.4rem, 3vw, 2.25rem);
+    background: var(--home-charcoal);
+    box-shadow: 0 0.8rem 2rem color-mix(in srgb, var(--home-deep-navy) 54%, transparent);
+    color: var(--home-light-blue);
 }
 
-.aira-home .aira-stack-milestone {
-    z-index: 1;
-    display: grid;
-    place-items: center;
-    align-self: start;
-    width: clamp(3.1rem, 7vw, 3.7rem);
-    height: clamp(3.1rem, 7vw, 3.7rem);
-    border: 0.2rem solid var(--home-slate-blue);
-    border-radius: 50%;
-    background: var(--home-light-blue);
-    color: var(--home-deep-navy);
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
-    font-weight: 850;
-    line-height: 1;
-}
-
-.aira-home .aira-stack-card {
+.st-key-tech_stack_infographic .aira-tech-stack {
     width: 100%;
     min-width: 0;
-    padding: clamp(1rem, 2.2vw, 1.45rem);
-    border: 1px solid color-mix(in srgb, var(--home-light-blue) 36%, transparent);
-    border-radius: 1.25rem;
-    background: color-mix(in srgb, var(--home-slate-blue) 72%, var(--home-charcoal));
+    margin: 0 auto;
     color: var(--home-light-blue);
-    box-shadow: 0 0.7rem 1.5rem color-mix(in srgb, var(--home-deep-navy) 44%, transparent);
 }
 
-.aira-home .aira-stack-heading {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
+.st-key-tech_stack_infographic .aira-native-section-copy {
+    max-width: 54rem;
+    margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
+    text-align: center;
 }
 
-.aira-home .aira-stack-level {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.5rem;
-    padding: 0.45rem 0.75rem;
-    border-radius: 999px;
-    background: var(--home-light-blue);
-    color: var(--home-deep-navy);
+.st-key-tech_stack_infographic .aira-native-section-copy h2 {
+    margin: 0 0 0.8rem;
+    color: var(--home-light-blue);
+    font-size: clamp(2rem, 4vw, 3.65rem);
     font-weight: 850;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
 }
 
-.aira-home .aira-tech-chip-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    justify-content: flex-start;
-    margin-top: 1rem;
-}
-
-.aira-home .aira-tech-chip {
-    max-width: 100%;
-    min-width: 0;
-    padding: 0.45rem 0.7rem;
-    border: 1px solid color-mix(in srgb, var(--home-light-blue) 42%, transparent);
-    border-radius: 999px;
-    background: var(--home-charcoal);
+.st-key-tech_stack_infographic .aira-native-section-copy p {
+    margin: 0;
     color: var(--home-light-blue);
-    font-size: 0.92rem;
-    font-weight: 700;
-    line-height: 1.25;
-    overflow-wrap: anywhere;
+    font-size: clamp(1rem, 1.3vw, 1.14rem);
+    line-height: 1.7;
+}
+
+.st-key-tech_stack_infographic [data-testid="stImage"],
+.st-key-tech_stack_infographic [data-testid="stImage"] img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 @media (max-width: 1000px) {
@@ -483,7 +436,8 @@
     .aira-home .aira-profile-card,
     .aira-home .aira-introduction-card,
     .aira-home .aira-competency-roadmap,
-    .aira-home .aira-tech-stack {
+    .aira-home .aira-tech-stack,
+    .st-key-tech_stack_infographic {
         border-radius: 1.35rem;
     }
 
@@ -491,30 +445,12 @@
         font-size: clamp(2.2rem, 12vw, 3.25rem);
     }
 
-    .aira-home .aira-stack-list {
-        width: 100%;
-    }
-
-    .aira-home .aira-stack-list::before {
-        left: clamp(1.45rem, 7vw, 1.65rem);
-    }
-
-    .aira-home .aira-stack-layer {
-        grid-template-columns: clamp(3rem, 14vw, 3.4rem) minmax(0, 1fr);
-        gap: clamp(0.7rem, 3vw, 0.9rem);
-    }
-}
-
-    .aira-home .aira-stack-milestone {
-        width: clamp(2.85rem, 13vw, 3.25rem);
-        height: clamp(2.85rem, 13vw, 3.25rem);
-        font-size: clamp(0.95rem, 4vw, 1.1rem);
-    }
 }
 
 @media (max-width: 430px) {
     .aira-home .aira-competency-roadmap,
-    .aira-home .aira-tech-stack {
+    .aira-home .aira-tech-stack,
+    .st-key-tech_stack_infographic {
         padding: clamp(1rem, 4vw, 1.25rem);
     }
 
