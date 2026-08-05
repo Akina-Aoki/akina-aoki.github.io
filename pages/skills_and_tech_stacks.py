@@ -150,18 +150,4 @@ st.html(
 )
 
 with st.container(key="tech_stack_infographic"):
-    st.html(
-        """
-        <section class="aira-layout-boundary aira-tech-stack" aria-labelledby="tech-stack-heading">
-            <div class="aira-native-section-copy">
-                <h2 id="tech-stack-heading">Data Engineering Tech Stack</h2>
-                <p>
-                    This stack begins with core foundations and progresses through
-                    the layers used to build reliable end-to-end data systems
-                    toward delivery experiences.
-                </p>
-            </div>
-        </section>
-        """
-    )
     st.image(TECH_STACK_IMAGE, use_container_width=True)
