@@ -3,8 +3,8 @@ from html import escape
 
 import streamlit as st
 
-from content.skills_and_tech_stacks import COMPETENCY_STAGES, TECH_STACK_LAYERS
-from utils.constants import PROFILE_IMAGE, STYLES_PATH
+from content.skills_and_tech_stacks import COMPETENCY_STAGES
+from utils.constants import PROFILE_IMAGE, STYLES_PATH, TECH_STACK_IMAGE
 from utils.helpers import image_to_data_uri, load_css
 
 
@@ -28,32 +28,6 @@ def render_competency_stage(stage: Mapping[str, object]) -> str:
     """
 
 
-def render_stack_layer(layer: Mapping[str, object]) -> str:
-    """Render one tech-stack flow layer as accessible HTML."""
-
-    level = int(layer["level"])
-    title = escape(str(layer["title"]))
-    technologies = "".join(
-        f'<li class="aira-tech-chip">{escape(str(technology))}</li>'
-        for technology in layer["technologies"]
-    )
-
-    return f"""
-        <li class="aira-stack-layer">
-            <div class="aira-stack-milestone" aria-label="Level {level:02d}">{level:02d}</div>
-            <article class="aira-stack-card">
-                <div class="aira-stack-heading">
-                    <span class="aira-stack-level">Level {level}</span>
-                    <h3>{title}</h3>
-                </div>
-                <ul class="aira-tech-chip-list" aria-label="Technologies for {title}">
-                    {technologies}
-                </ul>
-            </article>
-        </li>
-    """
-
-
 # Preserve the existing profile-image failure behavior.
 if not PROFILE_IMAGE.exists():
     st.error(
@@ -67,8 +41,6 @@ profile_image_uri = image_to_data_uri(PROFILE_IMAGE)
 competency_timeline_html = "".join(
     render_competency_stage(stage) for stage in COMPETENCY_STAGES
 )
-tech_stack_html = "".join(render_stack_layer(layer) for layer in TECH_STACK_LAYERS)
-
 load_css(
     STYLES_PATH / "theme.css",
     STYLES_PATH / "skills_and_tech_stacks.css",
@@ -173,6 +145,13 @@ st.html(
             </ol>
         </section>
 
+    </main>
+    """
+)
+
+with st.container(key="tech_stack_infographic"):
+    st.html(
+        """
         <section class="aira-layout-boundary aira-tech-stack" aria-labelledby="tech-stack-heading">
             <div class="aira-native-section-copy">
                 <h2 id="tech-stack-heading">Data Engineering Tech Stack</h2>
@@ -182,10 +161,7 @@ st.html(
                     toward delivery experiences.
                 </p>
             </div>
-            <ol class="aira-stack-list" aria-label="Data engineering tech stack layers">
-                {tech_stack_html}
-            </ol>
         </section>
-    </main>
-    """
-)
+        """
+    )
+    st.image(TECH_STACK_IMAGE, use_container_width=True)

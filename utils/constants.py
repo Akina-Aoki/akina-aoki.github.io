@@ -7,7 +7,7 @@ STYLES_PATH = ASSETS_PATH / "style"
 
 PROFILE_IMAGE = ASSETS_PATH / "profile_pic.jpg"
 ROADMAP_IMAGE = ASSETS_PATH / "roadmap.png"
-TECH_STACK_IMAGE = ASSETS_PATH / "de_tech_stack_pyramid.png"
+TECH_STACK_IMAGE = ASSETS_PATH / "data_engineering_tech_stack.png"
 
 RESUME_CANDIDATES = (
     ASSETS_PATH / "CV_Aira_Franco_en.pdf",
