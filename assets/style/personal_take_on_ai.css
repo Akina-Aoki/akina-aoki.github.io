@@ -1,0 +1,116 @@
+/* Page canvas */
+.stApp {
+    overflow-x: hidden;
+    color: var(--resume-white);
+    background: var(--resume-bg);
+}
+
+.block-container {
+    max-width: none;
+    padding: 3.5rem 1.5rem 4rem;
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+[data-testid="stSidebar"] {
+    background: #081827;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-testid="stSidebar"] * {
+    color: var(--resume-white);
+}
+
+/* Continuous essay article */
+.personal-take-main {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.personal-take-article {
+    width: min(100%, 920px);
+    margin: 0 auto;
+    padding: clamp(2.25rem, 5vw, 4.25rem);
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    color: var(--resume-white);
+    background: var(--resume-panel);
+    border: 1px solid var(--resume-border);
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+.personal-take-header {
+    margin-bottom: 2.25rem;
+}
+
+.personal-take-header h1 {
+    margin: 0 0 0.8rem;
+    color: var(--resume-white);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.35rem, 5vw, 4.25rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.personal-take-header h2 {
+    margin: 0;
+    color: var(--resume-green);
+    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.essay-paragraph {
+    margin: 0 0 1.5rem;
+    color: var(--resume-white);
+    font-size: clamp(1.05rem, 1.4vw, 1.12rem);
+    line-height: 1.82;
+}
+
+.essay-conclusion {
+    margin: 2.25rem 0 0;
+    padding-top: 1.5rem;
+    color: var(--resume-white);
+    border-top: 1px solid var(--resume-border);
+    font-weight: 750;
+    font-size: clamp(1.1rem, 1.6vw, 1.2rem);
+}
+
+@media (max-width: 768px) {
+    .block-container {
+        padding: 2.75rem 1rem 3rem;
+    }
+
+    .personal-take-article {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .personal-take-header {
+        margin-bottom: 1.75rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .block-container {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .personal-take-article {
+        padding: 1.65rem 1.2rem;
+    }
+
+    .personal-take-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .essay-paragraph {
+        font-size: 1.05rem;
+        line-height: 1.78;
+    }
+}
