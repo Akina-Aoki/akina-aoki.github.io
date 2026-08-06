@@ -29,11 +29,18 @@ projects_page = st.Page(
     url_path="projects",
 )
 
+personal_take_on_ai_page = st.Page(
+    "pages/personal_take_on_ai.py",
+    title="My Personal Take on AI",
+    url_path="personal-take-on-ai",
+)
+
 selected_page = st.navigation(
     [
         home_page,
         skills_and_tech_stacks_page,
         projects_page,
+        personal_take_on_ai_page,
     ],
     position="sidebar",
     expanded=True,

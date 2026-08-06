@@ -1,11 +1,4 @@
 :root {
-    --resume-bg: #061321;
-    --resume-panel: #0b1d2d;
-    --resume-panel-hover: #10283d;
-    --resume-white: #f8fafc;
-    --resume-muted: #aebdca;
-    --resume-green: #64e6b3;
-    --resume-border: rgba(100, 230, 179, 0.24);
     --resume-content-width: 1200px;
     --resume-section-background: linear-gradient(145deg, var(--resume-panel), #071521);
     --resume-section-border: var(--resume-border);
