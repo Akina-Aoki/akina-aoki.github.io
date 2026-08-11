@@ -81,12 +81,12 @@ header_html = dedent(
     <h1 class="resume-name">Aira Franco</h1>
 
     <p class="resume-role">
-        Aspiring Data Engineer
+        Data Engineer
     </p>
 
     <div class="resume-summary">
         <p class="summary-paragraph">
-            I am an aspiring data engineer who enjoys working behind
+            A data engineer who enjoys working behind
             the scenes to make complex data processes run smoothly.
             What I enjoy most is seeing messy data become something
             useful that people can trust.
