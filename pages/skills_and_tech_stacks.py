@@ -4,7 +4,12 @@ from html import escape
 import streamlit as st
 
 from content.skills_and_tech_stacks import COMPETENCY_STAGES
-from utils.constants import PROFILE_IMAGE, STYLES_PATH, TECH_STACK_IMAGE
+from utils.constants import (
+    CIRCLE_GRAPH_IMAGE,
+    PROFILE_IMAGE,
+    STYLES_PATH,
+    TECH_STACK_IMAGE,
+)
 from utils.helpers import image_to_data_uri, load_css
 
 
@@ -53,6 +58,20 @@ if not PROFILE_IMAGE.exists():
 
 
 profile_image_uri = image_to_data_uri(PROFILE_IMAGE)
+if CIRCLE_GRAPH_IMAGE.exists():
+    circle_graph_html = f"""
+        <img
+            class="aira-circle-graph"
+            src="{image_to_data_uri(CIRCLE_GRAPH_IMAGE)}"
+            alt="Diagram showing the relationship between data engineering, analytics, machine learning, and AI"
+        >
+    """
+else:
+    circle_graph_html = """
+        <p class="aira-circle-graph-warning" role="status">
+            The data engineering relationship diagram is unavailable.
+        </p>
+    """
 competency_timeline_html = "".join(
     render_competency_stage(stage) for stage in COMPETENCY_STAGES
 )
@@ -145,6 +164,8 @@ st.html(
                 AI may get the spotlight, but good data engineering is what
                 keeps everything running in the background.
             </p>
+
+            {circle_graph_html}
         </section>
 
         <section class="aira-layout-boundary aira-competency-roadmap" aria-labelledby="competency-map-heading">
