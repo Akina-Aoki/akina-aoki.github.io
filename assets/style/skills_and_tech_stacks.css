@@ -181,6 +181,26 @@
     margin-bottom: 0;
 }
 
+.aira-home .aira-circle-graph {
+    display: block;
+    width: 100%;
+    max-width: 46rem;
+    height: auto;
+    margin: clamp(1.25rem, 3vw, 2rem) auto 0;
+    object-fit: contain;
+}
+
+.aira-home .aira-circle-graph-warning {
+    width: fit-content;
+    max-width: 100%;
+    margin: clamp(1.25rem, 3vw, 2rem) auto 0;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--home-slate-blue);
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 /* Native data sections */
 .aira-home .aira-competency-roadmap {
     min-width: 0;
