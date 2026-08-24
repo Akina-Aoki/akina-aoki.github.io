@@ -4,3 +4,17 @@
 @media(max-width:760px){html{scroll-padding-top:4.5rem}.site-header{min-height:64px}.menu-button{display:block}.site-header nav{position:absolute;left:0;right:0;top:100%;display:none;flex-direction:column;padding:1rem;background:var(--panel);border-bottom:1px solid var(--border)}.menu-open .site-header nav{display:flex}.hero-grid,.education-grid,.two-column,.project-grid{grid-template-columns:1fr}.profile-column{width:min(100%,420px);margin:auto}.hero h1{font-size:clamp(3.2rem,18vw,5rem)}.timeline-heading,.projects-intro,.featured{align-items:flex-start;flex-direction:column}.social-grid{grid-template-columns:1fr 1fr}.essay-images{grid-template-columns:1fr}.section{width:min(100% - 1.25rem,var(--max));padding:3.5rem 0}.timeline-item{padding-left:1rem}.job-card summary{gap:.7rem}.job-icon{flex-basis:36px}.job-card strong{overflow-wrap:anywhere}footer{flex-direction:column}}
 @media(max-width:420px){.social-grid{grid-template-columns:1fr}.timeline-controls{width:100%}.timeline-controls button{flex:1}.skills-timeline>li{grid-template-columns:36px minmax(0,1fr)}.stage-number{font-size:.78rem}.panel{padding:1rem}.job-card summary{padding:.8rem}.job-icon{display:none}.authorization{align-items:flex-start}.authorization em{padding-left:2.75rem}.profile-image{border-radius:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Multi-page shell: fixed desktop sidebar, compact mobile header. */
+@media(min-width:761px){
+  .site-header{position:fixed;inset:0 auto 0 0;width:280px;min-height:100vh;padding:2rem 1.25rem;align-items:stretch;justify-content:flex-start;flex-direction:column;border-right:1px solid rgba(255,255,255,.09);border-bottom:0;overflow-y:auto}
+  .brand{padding:.4rem .5rem 1.5rem}.brand>span{width:46px}.site-header nav{display:flex;flex-direction:column;gap:.5rem}.site-header nav a{padding:.75rem .8rem;overflow-wrap:anywhere}
+  .site-layout{margin-left:280px;min-width:0}.section{width:min(100% - 3rem,var(--max));}.site-layout footer{width:min(100% - 3rem,var(--max))}
+}
+.page-heading{margin-bottom:clamp(2rem,5vw,4rem)}
+.page-heading h1{max-width:100%;margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.7rem,6vw,5.5rem);line-height:1;letter-spacing:-.04em;overflow-wrap:anywhere}
+.hero h2{margin:.1rem 0 1.4rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,7vw,6rem);line-height:.94;letter-spacing:-.045em}
+@media(max-width:760px){
+  .site-header{position:sticky}.site-layout{min-width:0}.site-header nav{max-width:100vw;max-height:calc(100vh - 64px);overflow-y:auto}
+  body.menu-open{overflow:hidden}.page-heading h1{font-size:clamp(2.45rem,12vw,4.2rem)}
+}
