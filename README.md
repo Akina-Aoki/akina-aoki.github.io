@@ -1,6 +1,13 @@
 # Aira Franco — Data Engineer Portfolio
 
-A static portfolio website for Aira Franco, showcasing her professional profile, education, work and volunteer experience, data engineering skills, projects, technology stack, and essay on AI-assisted engineering. The visual design preserves the original dark, technical identity while using only semantic HTML, CSS, and lightweight JavaScript.
+A four-page static portfolio website for Aira Franco, showcasing her professional profile, experience, data engineering skills, projects, and essay on AI-assisted engineering. The visual design uses semantic HTML, shared CSS, and lightweight JavaScript.
+
+## Website structure
+
+- [`index.html`](index.html) — **Resume**
+- [`tech-stack-and-skills.html`](tech-stack-and-skills.html) — **Tech Stack and Skills**
+- [`projects.html`](projects.html) — **Projects**
+- [`my-personal-take-on-ai.html`](my-personal-take-on-ai.html) — **My Personal Take on AI**
 
 ## Live website
 
@@ -30,7 +37,7 @@ The deployed site is plain HTML, CSS, and JavaScript. GitHub Pages can serve it 
 
 1. Open the repository **Settings** and select **Pages**.
 2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select the publishing branch and the **`/ (root)`** folder.
+3. Select the **`main`** publishing branch and the **`/ (root)`** folder.
 4. Save and wait for GitHub Pages to publish the site.
 
 The root `.nojekyll` file tells GitHub Pages to serve the files directly without Jekyll processing.
