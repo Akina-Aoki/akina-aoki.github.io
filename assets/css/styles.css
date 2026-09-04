@@ -18,3 +18,20 @@
   .site-header{position:sticky}.site-layout{min-width:0}.site-header nav{max-width:100vw;max-height:calc(100vh - 64px);overflow-y:auto}
   body.menu-open{overflow:hidden}.page-heading h1{font-size:clamp(2.45rem,12vw,4.2rem)}
 }
+
+/* Expanded resume roles: keep detail spacing local to Work History cards. */
+.work-timeline .job-details{padding:1.1rem 1.35rem 1.35rem}
+.work-timeline .job-details ul{margin:0;padding-left:1.35rem}
+.work-timeline .job-details li+li{margin-top:.55rem}
+.work-timeline .job-details .tags{margin-top:1.15rem;column-gap:.55rem;row-gap:.6rem}
+
+/* The skills page begins directly with the learning roadmap. */
+.story>.page-heading{margin-bottom:0}
+.story>.timeline-heading{margin-top:0}
+
+/* Separate the stack graphic from the story cards at every viewport size. */
+.tech-stack+.story-grid-bottom{margin-top:clamp(3.5rem,6vw,5rem)}
+
+/* Preserve the complete square circle-graph artwork without clipping. */
+.story-grid-bottom .panel.intro{overflow:visible}
+.story-grid-bottom .circle-graph{display:block;width:100%;max-width:520px;height:auto;aspect-ratio:auto;margin:2rem auto 0;object-fit:contain;border-radius:12px;clip-path:none}
