@@ -35,3 +35,77 @@
 /* Preserve the complete square circle-graph artwork without clipping. */
 .story-grid-bottom .panel.intro{overflow:visible}
 .story-grid-bottom .circle-graph{display:block;width:100%;max-width:520px;height:auto;aspect-ratio:auto;margin:2rem auto 0;object-fit:contain;border-radius:12px;clip-path:none}
+
+/* Skills page: the tech-stack infographic comes first. */
+.story>.page-heading+.tech-stack{margin-top:clamp(1.5rem,3vw,2.5rem)}
+.tech-stack+.timeline-heading{margin-top:clamp(3.5rem,6vw,5rem)}
+.story-grid-bottom{margin-top:clamp(3.5rem,6vw,5rem)}
+
+/* Skills roadmap: roomier, easier-to-read stage descriptions. */
+.skills-timeline{gap:1.5rem 1.75rem}
+.stage-card summary{padding:1.05rem 1.35rem}
+.stage-card h3{font-size:1.2rem;line-height:1.35}
+.stage-card>ul,.upcoming ul{margin:0;padding:.35rem 1.5rem 1.6rem 2.6rem;font-size:1.04rem;line-height:1.75}
+.stage-card>ul li+li,.upcoming li+li{margin-top:.8rem}
+.upcoming{margin:0 1.25rem 1.4rem;padding:1.15rem 1.25rem}
+.upcoming h4{margin:0 0 .6rem;font-size:1.05rem}
+.upcoming ul{padding:0 0 0 1.3rem;font-size:1rem}
+
+/* Projects page: make the Main Blog card the clear focal point. */
+.featured{padding:clamp(1.8rem,5vw,3.25rem);gap:2.5rem}
+.featured .eyebrow{font-size:.95rem;letter-spacing:.16em}
+.featured h3{margin:.2rem 0 .9rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4.5vw,3.1rem);line-height:1.1;letter-spacing:-.025em}
+.featured p:not(.eyebrow){max-width:620px;font-size:1.2rem;line-height:1.65}
+.featured .button{flex:0 0 auto;padding:1.05rem 1.8rem;font-family:Georgia,"Times New Roman",serif;font-size:1.2rem}
+.featured+.projects-intro{margin-top:4.5rem}
+
+/* Work History heading matches "Education & experience". */
+.timeline-heading h2{margin:.1rem 0 .4rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,6vw,4.7rem);line-height:.94;letter-spacing:-.045em}
+
+/* Skills page: "Curious and resilient" is the centrepiece statement. */
+.story-grid-bottom{grid-template-columns:1fr}
+.story-grid-bottom .panel.highlight{padding:clamp(2rem,5vw,4rem);border-color:var(--mint);border-width:2px;background:linear-gradient(145deg,rgba(100,230,179,.14),var(--panel) 45%,#071521);box-shadow:0 0 0 1px rgba(100,230,179,.12),0 24px 60px rgba(100,230,179,.12)}
+.story-grid-bottom .panel.highlight .lead.mint{margin:0 0 1.5rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.6rem,6vw,4.6rem)!important;font-weight:700;line-height:1;letter-spacing:-.035em;color:var(--mint)!important}
+.story-grid-bottom .panel.highlight p:not(.lead){max-width:62rem;margin:0 0 1.35rem;font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.85;color:var(--ink)}
+.story-grid-bottom .panel.highlight p.location{margin:2rem 0 0;font-size:1.15rem;font-weight:800;color:var(--mint)!important}
+
+/* Titles: centre them on pages with a centred block, and unify heading sizes. */
+.story>.page-heading,.ai-take>.page-heading{text-align:center}
+.story>.page-heading h1,.ai-take>.page-heading h1{margin-inline:auto}
+
+/* Volunteer Work & Languages match "Education & experience" / "Work History". */
+.two-column>.panel>h2{margin:0 0 1.4rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,6vw,4.7rem);line-height:.94;letter-spacing:-.045em;overflow-wrap:anywhere}
+
+/* Skills roadmap and capstone headings match the page title (h1) size and font. */
+.story>.timeline-heading h2,.projects-intro h2{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.7rem,6vw,5.5rem);line-height:1;letter-spacing:-.04em;overflow-wrap:anywhere}
+.story>.timeline-heading{flex-direction:column;align-items:flex-start;margin-bottom:2rem}
+.story>.timeline-heading p{max-width:760px;margin-top:1rem}
+.projects-intro{margin-bottom:2.5rem}
+@media(max-width:760px){
+  .two-column>.panel>h2{font-size:clamp(2.2rem,10vw,3.4rem)}
+  .story>.timeline-heading h2,.projects-intro h2{font-size:clamp(2.45rem,12vw,4.2rem)}
+}
+
+/* Project cards: neon-glass look with a prominent category badge. */
+.project-grid{gap:1.5rem}
+.project-grid .project-card:nth-child(n){--accent:79,209,255;position:relative;overflow:hidden;padding:clamp(1.5rem,3vw,2.2rem);border:1px solid rgba(var(--accent),.35);border-radius:22px;background:radial-gradient(120% 90% at 100% 0%,rgba(var(--accent),.22),transparent 55%),linear-gradient(160deg,#0f2237,#08131f 70%);box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease,background .3s ease}
+.project-grid .project-card:nth-child(4n+2){--accent:167,139,250}
+.project-grid .project-card:nth-child(4n+3){--accent:255,95,200}
+.project-grid .project-card:nth-child(4n+4){--accent:100,230,179}
+.project-card:before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,transparent 35%,rgba(var(--accent),.16) 50%,transparent 65%);transform:translateX(-120%);transition:transform .8s ease;pointer-events:none}
+.project-card>*{position:relative}
+.project-card .eyebrow{display:inline-flex;align-items:center;align-self:flex-start;gap:.6rem;margin:0 0 1.1rem;padding:.5rem 1.05rem;border:1px solid rgba(var(--accent),.55);border-radius:999px;background:rgba(var(--accent),.13);color:rgb(var(--accent));font-size:1.05rem;font-weight:900;letter-spacing:.1em;line-height:1.2;box-shadow:0 0 18px rgba(var(--accent),.18) inset;transition:box-shadow .3s ease,background .3s ease}
+.project-card .eyebrow:before{content:"";flex:0 0 .6rem;width:.6rem;height:.6rem;border-radius:50%;background:rgb(var(--accent));box-shadow:0 0 10px rgb(var(--accent))}
+.project-card h3{margin:.1rem 0 .8rem;font-size:clamp(1.5rem,2.4vw,1.8rem);line-height:1.2;transition:text-shadow .3s ease}
+.project-card p{flex:1 1 auto;margin:0 0 1.2rem;font-size:1.02rem;line-height:1.7;opacity:.88}
+.project-card .tags>span{border-color:rgba(var(--accent),.4);background:rgba(var(--accent),.1);transition:background .3s ease,border-color .3s ease}
+.project-card .card-link{align-self:flex-start;margin-top:1.4rem;padding:.55rem 1.1rem;border:1px solid rgba(var(--accent),.6);border-radius:999px;color:rgb(var(--accent));transition:background .3s ease,color .3s ease,box-shadow .3s ease}
+.project-grid .project-card:nth-child(n):hover,.project-grid .project-card:nth-child(n):focus-visible{transform:translateY(-6px);border-color:rgb(var(--accent));background:radial-gradient(120% 90% at 100% 0%,rgba(var(--accent),.38),transparent 60%),linear-gradient(160deg,#12293f,#0a1624 70%);box-shadow:0 0 0 1px rgb(var(--accent)),0 0 22px rgba(var(--accent),.55),0 0 60px rgba(var(--accent),.3),0 22px 44px rgba(0,0,0,.45)}
+.project-card:hover:before,.project-card:focus-visible:before{transform:translateX(120%)}
+.project-card:hover h3,.project-card:focus-visible h3{text-shadow:0 0 16px rgba(var(--accent),.7)}
+.project-card:hover .eyebrow,.project-card:focus-visible .eyebrow{background:rgba(var(--accent),.22);box-shadow:0 0 18px rgba(var(--accent),.18) inset,0 0 16px rgba(var(--accent),.5)}
+.project-card:hover .tags>span,.project-card:focus-visible .tags>span{border-color:rgba(var(--accent),.75);background:rgba(var(--accent),.18)}
+.project-card:hover .card-link,.project-card:focus-visible .card-link{background:rgb(var(--accent));color:#061321;box-shadow:0 0 20px rgba(var(--accent),.7)}
+
+/* My Personal Take on AI: the essay headline is a subtitle, not a second title. */
+.ai-take .essay>header h2{margin:0 0 1.5rem;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.25;letter-spacing:-.015em}
